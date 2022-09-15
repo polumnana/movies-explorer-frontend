@@ -10,8 +10,6 @@
 
 .footer__subscription {
     width: 1140px;
-    border-bottom: 1px;
-    border-color: black;
     display: flex;
     justify-content: center;
     padding: 79px 0 20px;
