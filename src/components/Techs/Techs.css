@@ -44,6 +44,11 @@
 
 .techs__description {
     margin: 0;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #000;
 }
 
 .techs__items {
@@ -66,5 +71,6 @@
     width: 90px;
     height: 60px;
     border-radius: 10px;
+    color: #000;
     background-color: #E8E8E8;
 }
