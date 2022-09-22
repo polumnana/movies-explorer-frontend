@@ -1,11 +1,16 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import Logo from '../../images/Logo.svg';
 
 
 function Register(props) {
 
     return (
         <section className="register">
+            <div className="register__logo">
+                <img className="register__img" src={Logo} alt="Логотип"></img>
+            </div>
+
             <h2 className="register__title">Добро пожаловать!</h2>
             <form
                 className="register__form"
@@ -24,7 +29,7 @@ function Register(props) {
                         required
                     />
                 </label>
-                <span className="register__type-input-error name-input-error">Ошибка ошибка много ошибок</span>
+                <span className="register__type-input-error name-input-error"></span>
 
                 <label className="register__label">
                     <h2 className="register__subtitle">E-mail</h2>
