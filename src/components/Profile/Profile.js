@@ -14,7 +14,7 @@ function Profile(props) {
                     <input
                         className="profile__input"
                         type="name"
-                        id="name-input"
+                        id="profile-name-input"
                         placeholder="Введите ваше имя"
                         name="name"
                         minLength="2"
@@ -29,7 +29,7 @@ function Profile(props) {
                     <input
                         className="profile__input"
                         type="email"
-                        id="email-input"
+                        id="profile-email-input"
                         placeholder="Email"
                         name="email"
                         minLength="4"
