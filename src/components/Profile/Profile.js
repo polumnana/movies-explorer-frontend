@@ -23,6 +23,8 @@ function Profile(props) {
                         required
                     />
                 </label>
+                <span className="profile__input_type-error name-input-error">Ошибка ошибка ошибка много ошибок</span>
+
 
                 <label className="profile__label">
                     <h2 className="profile__subtitle">E-mail</h2>
@@ -37,17 +39,21 @@ function Profile(props) {
                         value=""
                         required />
                 </label>
-
+                <span className="profile__input_type-error email-input-error">Ошибка ошибка ошибка много ошибок</span>
 
                 <section className="profile__navigation">
                     <button className="profile__button-edit">Редактировать</button>
                     <Link to="/" className="profile__signout-link">Выйти из аккаунта</Link>
                 </section>
 
-                <button
-                    className="profile__submit"
-                    type="submit">Сохранить
-                </button>
+                <section className="profile__submit">
+                    <span className="profile__submit_type-error profile-submit-error">При обновлении профиля произошла ошибка.</span>
+                    <button
+                        className="profile__submit-button"
+                        type="submit"
+                    >Сохранить
+                    </button>
+                </section>
 
             </form>
         </section>
