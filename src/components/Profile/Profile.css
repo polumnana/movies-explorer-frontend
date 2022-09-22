@@ -38,6 +38,7 @@
 }
 
 .profile__input {
+    padding: 0;
     border: none;
     outline: none;
     text-align: right;
@@ -49,6 +50,8 @@
 }
 
 .profile__input_type-error {
+    display: block;
+    height: 12px;
     margin: 6px 0 0;
     font-style: normal;
     font-weight: 400;
@@ -96,6 +99,8 @@
 }
 
 .profile__submit_type-error {
+    display: block;
+    height: 13px;
     margin: 0 0 20px;
     font-style: normal;
     font-weight: 400;
