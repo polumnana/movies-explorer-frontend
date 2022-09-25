@@ -7,9 +7,11 @@ function Login(props) {
 
     return (
         <section className="login">
-            <div className="login__logo">
+            <Link
+                to="/"
+                className="login__logo">
                 <img className="login__img" src={Logo} alt="Логотип"></img>
-            </div>
+            </Link>
 
             <h2 className="login__title">Рады видеть!</h2>
             <form
