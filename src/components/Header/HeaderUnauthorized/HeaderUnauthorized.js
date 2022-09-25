@@ -4,12 +4,12 @@ function HeaderUnauthorized() {
     return (
         <section className="header__unauthorized">
             <Link
-                to="sighup"
+                to="/signup"
                 className="header__button-register">
                 Регистрация
             </Link>
             <Link
-                to="/sighin"
+                to="/signin"
                 className="header__button-login">
                 Войти
             </Link>
