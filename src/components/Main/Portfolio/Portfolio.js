@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "../../images/Link.svg";
+import Link from "../../../images/Link.svg";
 
 function Portfolio(props) {
     return (

@@ -1,5 +1,5 @@
 import React from "react";
-import userPhoto from '../../images/userPhoto.jpg';
+import userPhoto from '../../../images/userPhoto.jpg';
 
 
 function AboutMe(props) {
