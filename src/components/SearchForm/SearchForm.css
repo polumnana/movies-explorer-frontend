@@ -15,7 +15,7 @@
         background: var(--background);
         transition: background-color .3s;
     }
-
+    
     .searchform__switch-checkbox::after {
         margin: 0;
         display: block;
@@ -91,7 +91,10 @@
     outline: none;
     background-color: #f9f9f9;
     cursor: pointer;
+}
 
+.searchform__button-find:hover {
+    opacity: .7;
 }
 
 .searchform__button-find-img {

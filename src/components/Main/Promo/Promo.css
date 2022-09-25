@@ -46,3 +46,7 @@
     border-radius: 10px;
     cursor: pointer;
 }
+
+.promo__item:hover {
+    opacity: .7;
+}

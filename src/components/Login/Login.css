@@ -108,6 +108,10 @@
     border: none;
 }
 
+.login__submit-button:hover {
+    opacity: .7;
+}
+
 .login__submit-button_inactive {
     background-color: #F8F8F8;
     color: #C2C2C2;
@@ -223,4 +227,8 @@
     color: #fff;
     cursor: pointer;
     border: none;
+}
+
+.auth__form-submit:hover {
+    opacity: .7;
 }

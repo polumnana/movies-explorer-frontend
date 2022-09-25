@@ -80,6 +80,10 @@
     color: #000;
 }
 
+.profile__button-edit:hover {
+    opacity: .7;
+}
+
 .profile__signout-link {
     margin: 0;
     text-decoration: none;
@@ -89,6 +93,10 @@
     font-size: 13px;
     line-height: 16px;
     color: #EE3465;
+}
+
+.profile__signout-link:hover {
+    opacity: .7;
 }
 
 .profile__submit {
@@ -124,6 +132,10 @@
     color: #fff;
     cursor: pointer;
     border: none;
+}
+
+.profile__submit-button:hover {
+    opacity: .7;
 }
 
 .profile__submit-button_inactive {

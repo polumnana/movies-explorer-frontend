@@ -78,6 +78,10 @@
     color: #000;
 }
 
+.about-me__link:hover {
+    opacity: .7;
+}
+
 .about-me__photo {
     width: 270px;
     height: 327px;

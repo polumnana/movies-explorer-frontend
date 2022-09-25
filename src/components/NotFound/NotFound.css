@@ -40,3 +40,7 @@
     line-height: 17px;
     color: #2BE080;
 }
+
+.notfound__button:hover {
+    opacity: .7;
+}
