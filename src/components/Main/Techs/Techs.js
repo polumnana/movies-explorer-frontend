@@ -2,7 +2,9 @@ import React from "react";
 
 function Techs(props) {
     return (
-        <article className="techs">
+        <article
+            id="techs"
+            className="techs">
             <div className="techs__subscription techs__line">
                 <h1 className="techs__title">Технологии</h1>
             </div>

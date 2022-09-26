@@ -2,7 +2,9 @@ import React from "react";
 
 function AboutProject(props) {
     return (
-        <article className="about-project">
+        <article
+            id="about-project"
+            className={props.id} >
             <div className="about-project__subscription about-project__line">
                 <h1 className="about-project__title">О проекте</h1>
             </div>
@@ -10,15 +12,15 @@ function AboutProject(props) {
                 <div className="about-project__description">
                     <h2 className="about-project__subtitle">Дипломный проект включал 5 этапов</h2>
                     <p className="about-project__text">
-                        Составление плана, работу над бэкендом, 
-                        вёрстку, добавление функциональности 
+                        Составление плана, работу над бэкендом,
+                        вёрстку, добавление функциональности
                         и финальные доработки.</p>
                 </div>
                 <div className="about-project__description">
                     <h2 className="about-project__subtitle">
                         На выполнение диплома ушло 5 недель</h2>
                     <p className="about-project__text">
-                        У каждого этапа был мягкий и жёсткий дедлайн, 
+                        У каждого этапа был мягкий и жёсткий дедлайн,
                         которые нужно было соблюдать, чтобы успешно защититься.</p>
                 </div>
             </section>

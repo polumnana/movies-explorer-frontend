@@ -1,4 +1,5 @@
 import React from "react";
+import { HashLink as Link } from 'react-router-hash-link';
 
 function Promo(props) {
     return (
@@ -7,9 +8,9 @@ function Promo(props) {
                 <h1 className="promo__title">
                     Учебный проект студента факультета Веб-разработки.</h1>
                 <div className="promo__items">
-                    <div className="promo__item">О проекте</div>
-                    <div className="promo__item">Технологии</div>
-                    <div className="promo__item">Студент</div>
+                    <Link to="#about-project" className="promo__item">О проекте</Link>
+                    <Link to="#techs" className="promo__item">Технологии</Link>
+                    <Link to="#about-me" className="promo__item">Студент</Link>
                 </div>
             </section>
 

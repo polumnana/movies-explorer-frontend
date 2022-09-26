@@ -4,7 +4,9 @@ import userPhoto from '../../../images/userPhoto.jpg';
 
 function AboutMe(props) {
     return (
-        <article className="about-me">
+        <article
+            id="about-me"
+            className="about-me">
             <div className="about-me__subscription about-me__line">
                 <h1 className="about-me__title">Студент</h1>
             </div>
