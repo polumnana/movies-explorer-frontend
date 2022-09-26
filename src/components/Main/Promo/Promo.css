@@ -2,6 +2,10 @@
     margin: 0;
     width: 1280px;
     background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .promo__container {
