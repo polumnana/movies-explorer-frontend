@@ -1,30 +1,27 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import AboutMe from './AboutMe/AboutMe';
-import AboutProject from './AboutProject/AboutProject';
-import Footer from './Footer/Footer';
+import Main from './Main/Main';
 import NotFound from './NotFound/NotFound';
-import Portfolio from './Portfolio/Portfolio';
-import Promo from './Promo/Promo';
-import Techs from './Techs/Techs';
+import Login from './Login/Login';
+import Register from './Register/Register';
+import Profile from './Profile/Profile';
+import Movies from './Movies/Movies';
+import SavedMovies from './SavedMovies/SavedMovies';
 
 function App() {
   return (
     <div className="App">
       <div className='page'>
         <Routes>
-          <Route path='/' element={<Footer />} />
-          <Route path='/techs' element={<Techs />} />
-          <Route path='/aboutme' element={<AboutMe />} />
-          <Route path='/portfolio' element={<Portfolio />} />
-          <Route path='/aboutproject' element={<AboutProject />} />
-          <Route path='/promo' element={<Promo />} />
+          <Route path='/' element={<Main />} />
           <Route path='*' element={<NotFound />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/signup' element={<Register />} />
+          <Route path='/signin' element={<Login />} />
+          <Route path='/movies' element={<Movies />} />
+          <Route path='/saved-movies' element={<SavedMovies />} />
         </Routes>
       </div>
-              
-
-
     </div>
   );
 }
