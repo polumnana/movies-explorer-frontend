@@ -39,6 +39,10 @@
     flex-direction: column;
 }
 
+.register__label:focus-within {
+    border-bottom: 1px solid #2BE080;;
+}
+
 .register__subtitle {
     margin: 0 0 6px;
     font-style: normal;
