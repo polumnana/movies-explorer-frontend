@@ -1,4 +1,6 @@
 import React from "react";
+import Poster from "../../images/Poster.svg";
+import isSaved from "../../images/Saved.svg";
 
 function Movie(props) {
     return (
@@ -6,9 +8,9 @@ function Movie(props) {
             <h1 className="movie__title">33 слова о дизайне</h1>
             <p className="movie__duration">{`1ч 47м`}</p>
             <button className="movie__button" >
-                <img className="movie__button-img" alt={props.imgAlt} src={props.isSaved}></img>
+                <img className="movie__button-img" alt={props.imgAlt} src={isSaved}></img>
             </button>
-            <img className="movie__poster" alt="Постер фильма" src={props.Poster}></img>
+            <img className="movie__poster" alt="Постер фильма" src={Poster}></img>
         </section>
     );
 }
