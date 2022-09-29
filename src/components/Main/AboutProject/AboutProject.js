@@ -4,7 +4,7 @@ function AboutProject(props) {
     return (
         <article
             id="about-project"
-            className={props.id} >
+            className="about-project" >
             <div className="about-project__subscription about-project__line">
                 <h1 className="about-project__title">О проекте</h1>
             </div>
