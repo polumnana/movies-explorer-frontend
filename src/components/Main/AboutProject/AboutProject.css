@@ -25,7 +25,6 @@
     font-weight: 400;
     font-size: 22px;
     line-height: 27px;
-    color: #000;
 }
 
 .about-project__container {
@@ -46,7 +45,6 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
-    color: #000;
 }
 
 .about-project__text {
@@ -55,7 +53,6 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
-    color: #000;
 }
 
 .about-project__progress {
@@ -78,7 +75,6 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 36px;
-    color: #000;
 }
 
 .about-project__text-block {

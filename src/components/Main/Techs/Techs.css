@@ -24,7 +24,6 @@
     font-weight: 400;
     font-size: 22px;
     line-height: 27px;
-    color: #000;
 }
 
 .techs__container {
@@ -39,7 +38,6 @@
     font-weight: 400;
     font-size: 50px;
     line-height: 58px;
-    color: #000;
 }
 
 .techs__description {
@@ -48,7 +46,6 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
-    color: #000;
 }
 
 .techs__items {
@@ -71,6 +68,5 @@
     width: 90px;
     height: 60px;
     border-radius: 10px;
-    color: #000;
     background-color: #E8E8E8;
 }

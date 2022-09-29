@@ -42,7 +42,6 @@
     font-weight: 400;
     font-size: 50px;
     line-height: 58px;
-    color: #000;
 }
 
 .about-me__about {
@@ -51,7 +50,6 @@
     font-weight: 500;
     font-size: 18px;
     line-height: 20px;
-    color: #000;
 }
 
 .about-me__text {
@@ -60,7 +58,6 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
-    color: #000;
 }
 
 .about-me__links {
