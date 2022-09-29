@@ -13,9 +13,9 @@ function AboutMe(props) {
             <div className="about-me__container">
                 <section className="about-me__description">
                     <h2 className="about-me__name">Елена</h2>
-                    <h3 className="about-me__about">Начинающий фронтенд-разработчик, 24 года</h3>
+                    <h3 className="about-me__about">Студент Яндекс.Практикум</h3>
                     <p className="about-me__text">
-                        После переезда в другую страну у меня появилось время,
+                        Однажды у меня появилось время,
                         чтобы изучить что-то новое.
                         Мой выбор пал на фронтенд-разработку!
                         Мне нравится видеть, как набор строчек кода может оживить страничку или
@@ -24,7 +24,7 @@ function AboutMe(props) {
                     </p>
 
                     <div className="about-me__links">
-                        <a className="about-me__link" href="github.com/polumnana">Github</a>
+                        <a className="about-me__link" href="https://github.com/polumnana">Github</a>
                         <a className="about-me__link" href="https://www.facebook.com/">Facebook</a>
                     </div>
                 </section>
