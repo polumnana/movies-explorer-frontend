@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import BurgerMenuClose from "../../../images/BurgerMenuClose.svg";
 
 function HeaderBurger() {
     return (
@@ -7,7 +8,8 @@ function HeaderBurger() {
                 <button className="burger__button-close">
                     <img
                         className="burger__button-close-img"
-                        alt="Кнопка закрыть"
+                        alt="Закрыть"
+                        src={BurgerMenuClose}
                          >
                     </img>
                 </button>
