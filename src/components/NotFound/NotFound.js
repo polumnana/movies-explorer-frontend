@@ -6,8 +6,8 @@ function NotFound(props) {
             <section className="notfound__container">
                 <h1 className="notfound__title">404</h1>
                 <p className="notfound__text">Страница не найдена</p>
-                <button className="notfound__button">Назад</button>
             </section>
+            <button className="notfound__button">Назад</button>
         </article>
     );
 }
