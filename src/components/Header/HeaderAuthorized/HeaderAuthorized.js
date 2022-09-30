@@ -37,7 +37,7 @@ function HeaderAuthorized() {
                         Фильмы
                     </Link>
                     <Link
-                        to="saved-movies"
+                        to="/saved-movies"
                         className="header__button-saved-films header__button-films-text header__button-films-text_selected">
                         Сохранённые фильмы
                     </Link>
