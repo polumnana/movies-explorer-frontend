@@ -1,16 +1,18 @@
 import { Link } from "react-router-dom";
 import BurgerMenuClose from "../../../images/BurgerMenuClose.svg";
 
-function HeaderBurger() {
+function HeaderBurger(props) {
     return (
-        <section className='burger'>
+        <section className={`burger ${props.classList}`}>
             <div className="burger__container">
-                <button className="burger__button-close">
+                <button
+                    className="burger__button-close"
+                    onClick={props.onClose}>
                     <img
                         className="burger__button-close-img"
                         alt="Закрыть"
                         src={BurgerMenuClose}
-                         >
+                    >
                     </img>
                 </button>
                 <div className="burger__buttons">
@@ -32,7 +34,7 @@ function HeaderBurger() {
                         Аккаунт
                     </Link>
                 </div>
-                
+
             </div>
         </section>
     );

@@ -1,16 +1,33 @@
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ButtonMenu from '../../../images/BurgerMenu.svg';
-
-
+import HeaderBurger from '../HeaderBurger/HeaderBurger';
 
 function HeaderAuthorized() {
+
+    const [classesListBurger, setClassesListBurger] = React.useState('');
+
+    function handleOpenBurger() {
+        setClassesListBurger("burger burger_opened");
+    }
+
+    function handleCloseBurger() {
+        setClassesListBurger("burger");
+    }
+
     return (
         <>
-            <section class="header__burger">
-                <button class="header__button-menu">
+            <section className="header__burger">
+                <button
+                    className="header__button-menu"
+                    onClick={handleOpenBurger}
+                >
                     <img className='header__img' alt="Меню" src={ButtonMenu}></img>
                     <span class="header__burger-layer"></span>
                 </button>
+                <HeaderBurger
+                    classList={classesListBurger}
+                    onClose={handleCloseBurger} />
             </section>
 
             <section className="header__authorized">
