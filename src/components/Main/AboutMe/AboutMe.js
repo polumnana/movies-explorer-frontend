@@ -24,8 +24,8 @@ function AboutMe(props) {
                     </p>
 
                     <div className="about-me__links">
-                        <a className="about-me__link" href="https://github.com/polumnana">Github</a>
-                        <a className="about-me__link" href="https://www.facebook.com/">Facebook</a>
+                        <a className="about-me__link" rel="noreferrer" target="_blank" href="https://github.com/polumnana">Github</a>
+                        <a className="about-me__link" rel="noreferrer" target="_blank" href="https://www.facebook.com/">Facebook</a>
                     </div>
                 </section>
                 <section className="about-me__photo">
