@@ -12,7 +12,7 @@ function SavedMovies() {
                 <HeaderAuthorized />
             </Header>
             <SearchForm />
-            <Gallery imgButton={DeleteButton} />
+            <Gallery ImgButton={DeleteButton} />
             <Footer />
         </>
     )
