@@ -3,20 +3,20 @@ import Movie from "../Movie/Movie";
 
 function Gallery(props) {
     return (
-        <section className="gallery">
+        <section className="gallery" ImgButton={props.ImgButton}>
             <section className="gallery__elements">
-                <Movie />
-                <Movie />
-                <Movie />
-                <Movie />
-                <Movie />
-                <Movie />
-                <Movie />
-                <Movie />
-                <Movie />
-                <Movie />
-                <Movie />
-                <Movie />
+                <Movie ImgButton={props.ImgButton} />
+                <Movie ImgButton={props.ImgButton} />
+                <Movie ImgButton={props.ImgButton} />
+                <Movie ImgButton={props.ImgButton} />
+                <Movie ImgButton={props.ImgButton} />
+                <Movie ImgButton={props.ImgButton} />
+                <Movie ImgButton={props.ImgButton} />
+                <Movie ImgButton={props.ImgButton} />
+                <Movie ImgButton={props.ImgButton} />
+                <Movie ImgButton={props.ImgButton} />
+                <Movie ImgButton={props.ImgButton} />
+                <Movie ImgButton={props.ImgButton} />
             </section>
             <button className="gallery__button">Ещё</button>
         </section>

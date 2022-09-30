@@ -3,6 +3,7 @@ import HeaderAuthorized from "../Header/HeaderAuthorized/HeaderAuthorized";
 import SearchForm from "../SearchForm/SearchForm";
 import Gallery from "../Gallery/Gallery";
 import Footer from "../Footer/Footer";
+import DeleteButton from "../../images/Delete.svg";
 
 function SavedMovies() {
     return (
@@ -11,7 +12,7 @@ function SavedMovies() {
                 <HeaderAuthorized />
             </Header>
             <SearchForm />
-            <Gallery />
+            <Gallery imgButton={DeleteButton} />
             <Footer />
         </>
     )
