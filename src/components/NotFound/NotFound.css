@@ -39,6 +39,7 @@
 .notfound__button {
     position: fixed;
     margin: 0;
+    padding: 0;
     bottom: 60px;
     border: none;
     background-color: #fff;
