@@ -1,9 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Header from "../Header/Header";
+import HeaderAuthorized from "../Header/HeaderAuthorized/HeaderAuthorized";
 
 function Profile(props) {
 
     return (
+        <>
+        <Header>
+            <HeaderAuthorized />
+        </Header>
         <section className="profile">
             <h2 className="profile__title">Привет, Виталий!</h2>
             <form
@@ -21,6 +27,7 @@ function Profile(props) {
                         maxLength="30"
                         value=""
                         required
+                        readonly
                     />
                 </label>
                 <span className="profile__input_type-error name-input-error"></span>
@@ -37,7 +44,9 @@ function Profile(props) {
                         minLength="4"
                         maxLength="40"
                         value=""
-                        required />
+                        required 
+                        readonly 
+                    />
                 </label>
                 <span className="profile__input_type-error email-input-error"></span>
 
@@ -57,6 +66,7 @@ function Profile(props) {
 
             </form>
         </section>
+        </>
     )
 }
 
