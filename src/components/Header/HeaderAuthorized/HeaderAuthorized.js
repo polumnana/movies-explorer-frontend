@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import ButtonMenu from '../../../images/BurgerMenu.svg';
 import HeaderBurger from '../HeaderBurger/HeaderBurger';
@@ -43,7 +43,7 @@ function HeaderAuthorized() {
                     </Link>
                 </div>
 
-                <Link to="/"
+                <Link to="/profile"
                     className="header__button-account">
                     Аккаунт
                 </Link>
