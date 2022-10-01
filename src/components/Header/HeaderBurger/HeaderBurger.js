@@ -29,7 +29,7 @@ function HeaderBurger(props) {
                         className="burger__button-text">
                         Сохранённые фильмы
                     </Link>
-                    <Link to="/"
+                    <Link to="/profile"
                         className="burger__button">
                         Аккаунт
                     </Link>
