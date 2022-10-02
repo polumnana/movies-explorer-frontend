@@ -93,10 +93,11 @@
 
     .promo__items {
         margin: 0 0 17px;
+        gap: 0 6px;
     }
 
     .promo__item {
-        gap: 0 6px;
+        width: 82px;
         font-size: 10px;
         line-height: 26px;
         border-radius: 6px;
