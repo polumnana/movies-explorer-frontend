@@ -14,6 +14,7 @@ function SearchForm(props) {
                     className="searchform__input"
                     placeholder="Фильм"
                     type="search"
+                    required
                 ></input>
                 <button className="searchform__button-find" type="button">
                     <img className="searchform__button-find-img" src={FindButton} alt="Кнопка поиск"></img>
