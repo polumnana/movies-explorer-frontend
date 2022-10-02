@@ -3,8 +3,8 @@ import { HashLink as Link } from 'react-router-hash-link';
 
 function Promo(props) {
     return (
-        <article className="promo">
-            <section className="promo__container">
+        <section className="promo">
+            <article className="promo__container">
                 <h1 className="promo__title">
                     Учебный проект студента факультета Веб-разработки.</h1>
                 <div className="promo__items">
@@ -12,9 +12,9 @@ function Promo(props) {
                     <Link to="#techs" className="promo__item">Технологии</Link>
                     <Link to="#about-me" className="promo__item">Студент</Link>
                 </div>
-            </section>
+            </article>
 
-        </article >
+        </section >
     );
 }
 

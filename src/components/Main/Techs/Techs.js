@@ -2,7 +2,7 @@ import React from "react";
 
 function Techs(props) {
     return (
-        <article
+        <section
             id="techs"
             className="techs">
             <div className="techs__subscription techs__line">
@@ -11,7 +11,7 @@ function Techs(props) {
             <div className="techs__container">
                 <h2 className="techs__subtitle">7 технологий</h2>
                 <h3 className="techs__description">На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.</h3>
-                <section className="techs__items">
+                <article className="techs__items">
                     <div className="techs__item">HTML</div>
                     <div className="techs__item">CSS</div>
                     <div className="techs__item">JS</div>
@@ -19,9 +19,9 @@ function Techs(props) {
                     <div className="techs__item">Git</div>
                     <div className="techs__item">Express.js</div>
                     <div className="techs__item">mongoDB</div>
-                </section>
+                </article>
             </div>
-        </article>
+        </section>
     );
 }
 

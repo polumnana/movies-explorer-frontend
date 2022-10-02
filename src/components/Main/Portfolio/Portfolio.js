@@ -3,10 +3,10 @@ import Link from "../../../images/Link.svg";
 
 function Portfolio(props) {
     return (
-        <article className="portfolio">
+        <section className="portfolio">
             <div className="portfolio__container">
                 <h1 className="portfolio__title">Портфолио</h1>
-                <section className="portfolio__links">
+                <article className="portfolio__links">
                     <div className="portfolio__link portfolio__line">
                         <h2 className="portfolio__text">Статичный сайт</h2>
                         <button className="portfolio__button" type="button">
@@ -31,10 +31,10 @@ function Portfolio(props) {
                             </a>
                         </button>
                     </div>
-                </section>
+                </article>
             </div>
 
-        </article >
+        </section >
     );
 }
 

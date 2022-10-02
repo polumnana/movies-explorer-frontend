@@ -2,13 +2,13 @@ import React from "react";
 
 function AboutProject(props) {
     return (
-        <article
+        <section
             id="about-project"
             className="about-project" >
             <div className="about-project__subscription about-project__line">
                 <h1 className="about-project__title">О проекте</h1>
             </div>
-            <section className="about-project__container">
+            <article className="about-project__container">
                 <div className="about-project__description">
                     <h2 className="about-project__subtitle">Дипломный проект включал 5 этапов</h2>
                     <p className="about-project__text">
@@ -23,8 +23,8 @@ function AboutProject(props) {
                         У каждого этапа был мягкий и жёсткий дедлайн,
                         которые нужно было соблюдать, чтобы успешно защититься.</p>
                 </div>
-            </section>
-            <section className="about-project__progress">
+            </article>
+            <article className="about-project__progress">
                 <div className="about-project__bar about-project_backend">
                     <h2 className="about-project__time">1 неделя</h2>
                     <p className="about-project__text-block">Backend</p>
@@ -33,8 +33,8 @@ function AboutProject(props) {
                     <h2 className="about-project__time">4 недели</h2>
                     <p className="about-project__text-block">Frontend</p>
                 </div>
-            </section>
-        </article >
+            </article>
+        </section >
     );
 }
 
