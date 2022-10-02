@@ -51,7 +51,7 @@ function Profile(props) {
                 <span className="profile__input_type-error email-input-error"></span>
 
                 <section className="profile__navigation">
-                    <button className="profile__button-edit">Редактировать</button>
+                    <button className="profile__button-edit" type="button">Редактировать</button>
                     <Link to="/" className="profile__signout-link">Выйти из аккаунта</Link>
                 </section>
 

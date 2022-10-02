@@ -18,7 +18,7 @@ function Gallery(props) {
                 <Movie ImgButton={props.ImgButton} />
                 <Movie ImgButton={props.ImgButton} />
             </section>
-            <button className="gallery__button">Ещё</button>
+            <button className="gallery__button" type="button">Ещё</button>
         </section>
     );
 }

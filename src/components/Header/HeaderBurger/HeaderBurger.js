@@ -7,7 +7,8 @@ function HeaderBurger(props) {
             <div className="burger__container">
                 <button
                     className="burger__button-close"
-                    onClick={props.onClose}>
+                    onClick={props.onClose}
+                    type="button">
                     <img
                         className="burger__button-close-img"
                         alt="Закрыть"

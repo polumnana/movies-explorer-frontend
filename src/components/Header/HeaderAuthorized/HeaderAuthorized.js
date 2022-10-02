@@ -21,6 +21,7 @@ function HeaderAuthorized() {
                 <button
                     className="header__button-menu"
                     onClick={handleOpenBurger}
+                    type="button"
                 >
                     <img className='header__img' alt="Меню" src={ButtonMenu}></img>
                     <span class="header__burger-layer"></span>
