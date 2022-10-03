@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useFormWithValidation } from '../../utils/validate.js';
 
@@ -8,6 +8,7 @@ function Profile(props) {
     const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
     const [classesListEditProfile, setClassesListEditProfile] = React.useState('profile__navigation_visible');
     const [classesListSubmitProfile, setClassesListSubmitProfile] = React.useState('');
+    const [isFormDisabled, setIsFormDisabled] = React.useState(true);
 
     function handleSubmit(evt) {
         evt.preventDefault();
@@ -20,6 +21,7 @@ function Profile(props) {
     function handleEditProfile() {
         setClassesListSubmitProfile('profile__submit_visible');
         setClassesListEditProfile('');
+        setIsFormDisabled(false);
     }
 
     return (
@@ -42,7 +44,7 @@ function Profile(props) {
                         maxLength="30"
                         value={values.name}
                         required
-                        disabled
+                        disabled={isFormDisabled}
                     />
                 </label>
                 <span className="profile__input_type-error name-input-error">{errors.name}</span>
@@ -61,7 +63,7 @@ function Profile(props) {
                         maxLength="40"
                         value={values.email}
                         required
-                        disabled
+                        disabled={isFormDisabled}
                     />
                 </label>
                 <span className="profile__input_type-error email-input-error">{errors.email}</span>
