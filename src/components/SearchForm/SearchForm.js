@@ -16,7 +16,7 @@ function SearchForm(props) {
                     type="search"
                     required
                 ></input>
-                <button className="searchform__button-find" type="button">
+                <button className="searchform__button-find" type="submit">
                     <img className="searchform__button-find-img" src={FindButton} alt="Кнопка поиск"></img>
                 </button>
                 <div className="searchform__switch">
