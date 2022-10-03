@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import Logo from '../../images/Logo.svg';
-import { useForm, useFormWithValidation } from '../../utils/validate.js';
+import { useFormWithValidation } from '../../utils/validate.js';
 
 
 function Login(props) {
@@ -27,8 +27,7 @@ function Login(props) {
                 <form
                     className="login__form"
                     name="login" 
-                    on
-                    onSubmit={handleSubmit}>
+                    onSubmit={handleSubmit} >
 
                     <label className="login__label">
                         <h2 className="login__subtitle">E-mail</h2>
