@@ -63,10 +63,14 @@
 }
 
 .profile__navigation {
+    display: none;
     margin: 220px 0 70px;
-    display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.profile__navigation_visible {
+    display: flex;
 }
 
 .profile__button-edit {
@@ -102,10 +106,13 @@
 
 .profile__submit {
     margin: 100px 0 70px;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
-    display: none;
+}
+
+.profile__submit_visible {
+    display: flex;
 }
 
 .profile__submit_type-error {
