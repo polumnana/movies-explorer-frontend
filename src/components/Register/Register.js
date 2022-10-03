@@ -1,9 +1,18 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import Logo from '../../images/Logo.svg';
+import { useFormWithValidation } from '../../utils/validate.js';
 
 
 function Register(props) {
+
+    const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
+
+    function handleSubmit(evt){
+        evt.preventDefault();
+        console.log(2);
+        // props.onSubmit({values.email, values.password});
+    }
 
     return (
         <section className="register">
@@ -17,53 +26,58 @@ function Register(props) {
                 <h2 className="register__title">Добро пожаловать!</h2>
                 <form
                     className="register__form"
-                    name="register" >
+                    name="register"
+                    onSubmit={handleSubmit} >
+
                     <label className="register__label">
                         <h2 className="register__subtitle">Имя</h2>
                         <input
                             className="register__input"
                             type="name"
+                            onChange={handleChange}
                             id="register-name-input"
                             placeholder="Введите ваше имя"
                             name="name"
                             minLength="2"
                             maxLength="30"
-                            value=""
+                            value={values.name}
                             required
                         />
                     </label>
-                    <span className="register__type-input-error name-input-error"></span>
+                    <span className="register__type-input-error name-input-error">{errors.name}</span>
 
                     <label className="register__label">
                         <h2 className="register__subtitle">E-mail</h2>
                         <input
                             className="register__input"
                             type="email"
+                            onChange={handleChange}
                             id="register-email-input"
                             placeholder="Email"
                             name="email"
                             minLength="4"
                             maxLength="40"
-                            value=""
+                            value={values.email}
                             required
                         />
                     </label>
-                    <span className="register__type-input-error email-input-error"></span>
+                    <span className="register__type-input-error email-input-error">{errors.email}</span>
 
                     <label className="register__label">
                         <h2 className="register__subtitle">Пароль</h2>
                         <input
                             className="register__input"
                             type="password"
+                            onChange={handleChange}
                             id="register-password-input"
                             placeholder="Пароль"
                             name="password"
                             minLength="6"
                             maxLength="200"
-                            value=""
+                            value={values.password}
                             required />
                     </label>
-                    <span className="register__input_type-error password-input-error"></span>
+                    <span className="register__type-input-error password-input-error">{errors.password}</span>
 
                     <section className="register__submit">
                         <span className="register__submit_type-error register-submit-error"></span>
