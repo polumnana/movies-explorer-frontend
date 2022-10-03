@@ -24,7 +24,7 @@ function HeaderAuthorized() {
                     type="button"
                 >
                     <img className='header__img' alt="Меню" src={ButtonMenu}></img>
-                    <span class="header__burger-layer"></span>
+                    <span className="header__burger-layer"></span>
                 </button>
                 <HeaderBurger
                     classList={classesListBurger}
