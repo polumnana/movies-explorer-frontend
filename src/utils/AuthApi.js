@@ -44,6 +44,23 @@ class AuthApi {
         }).then(this._checkResponse);//Проверка ответа
     }
 
+    fetchUserInfo() {
+        return fetch(this._baseUrl + '/users/me', {
+            headers: this._getHeaders(),
+        }).then(this._checkResponse);
+    }
+
+    updateUserInfo({ name, email }) {
+        return fetch(this._baseUrl + '/users/me', {
+            method: 'PATCH',
+            headers: this._getHeaders(),
+            body: JSON.stringify({
+                name: name,
+                email: email
+            })
+        }).then(this._checkResponse);
+    }
+
     _checkResponse(res) {
         if (res.ok) {
             return res.json();
