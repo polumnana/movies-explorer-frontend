@@ -3,7 +3,14 @@ class MoviesApi {
         this._baseUrl = baseUrl;
     }
 
-    
+    // запрос на получение всех фильмов
+    fetchMovies() {
+        return fetch(this._baseUrl, {
+            headers: {
+            'Content-Type': 'application/json',
+            },
+        }).then(this._checkResponse);
+    }
 
     _checkResponse(res) {
         if (res.ok) {
