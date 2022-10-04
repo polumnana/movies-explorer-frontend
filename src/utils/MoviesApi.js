@@ -1,5 +1,5 @@
 class MoviesApi {
-    constructor({baseUrl}) {
+    constructor({ baseUrl }) {
         this._baseUrl = baseUrl;
     }
 
@@ -7,7 +7,7 @@ class MoviesApi {
     fetchMovies() {
         return fetch(this._baseUrl, {
             headers: {
-            'Content-Type': 'application/json',
+                'Content-Type': 'application/json',
             },
         }).then(this._checkResponse);
     }
