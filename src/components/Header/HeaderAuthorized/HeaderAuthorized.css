@@ -1,0 +1,95 @@
+.header__burger {
+    display: none;
+}
+
+.header__button-menu {
+    width: 44px;
+    height: 44px;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.header__button-menu:hover {
+    opacity: .7;
+}
+
+.header__img {
+    width: 100%;
+    height: 100%;
+}
+
+.header__authorized {
+    margin: 0;
+    width: 1102px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__films {
+    display: flex;
+    align-items: center;
+}
+
+.header__button-films {
+    margin: 0 0 0 44px;
+    padding: 0;
+}
+
+.header__button-saved-films {
+    margin: 0 0 0 16px;
+    padding: 0;
+}
+
+.header__button-films-text {
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    color: #000;
+}
+
+.header__button-films-text_selected {
+    font-weight: 500;
+}
+
+.header__button-account {
+    display: block;
+    margin: 0 0 0 auto;
+    padding: 0;
+    width: 100px;
+    height: 32px;
+    text-decoration: none;
+    text-align: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 32px;
+    color: #000;
+    border: none;
+    background-color: #f9f9f9;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.header__button-account:hover {
+    opacity: .7;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    .header__authorized {
+        display: none;
+    }
+
+    .header__burger {
+        display: block;
+    }
+
+    .header__button-menu {
+        width: 40px;
+        height: 43px;
+    }
+}

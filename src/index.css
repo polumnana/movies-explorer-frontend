@@ -1,0 +1,40 @@
+@import url(./vendor/normalize.css);
+@import url(./fonts/Inter/fonts.css);
+
+@import url(./blocks/page/page.css);
+
+@import url(./components/Footer/Footer.css);
+@import url(./components/Main/Techs/Techs.css);
+@import url(./components/Main/AboutMe/AboutMe.css);
+@import url(./components/Main/Portfolio/Portfolio.css);
+@import url(./components/Main/AboutProject/AboutProject.css);
+@import url(./components/Main/Promo/Promo.css);
+@import url(./components/NotFound/NotFound.css);
+@import url(./components/Profile/Profile.css);
+@import url(./components/Register/Register.css);
+@import url(./components/Login/Login.css);
+@import url(./components/SearchForm/SearchForm.css);
+@import url(./components/Header/Header.css);
+@import url(./components/Header/HeaderAuthorized/HeaderAuthorized.css);
+@import url(./components/Header/HeaderUnauthorized/HeaderUnauthorized.css);
+@import url(./components/Movie/Movie.css);
+@import url(./components/Gallery/Gallery.css);
+@import url(./components/Movies/Movies.css);
+@import url(./components/SavedMovies/SavedMovies.css);
+@import url(./components/Header/HeaderBurger/HeaderBurger.css);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
