@@ -1,15 +1,33 @@
 import React from "react";
-import Poster from "../../images/Poster.svg";
+import NoSavedButton from "../../images/NoSaved.svg";
+import SavedButton from "../../images/Saved.svg";
+
 
 function Movie(props) {
+
+    // Определяем, есть ли у карточки лайк, поставленный текущим пользователем??
+    const isSaved = props.movie.isSaved;
+
+    // Создаём переменную, которую после зададим в `className` для кнопки лайка
+    const buttonImg = (
+        `${isSaved ? SavedButton : NoSavedButton }`
+    );
+
+    const altImg = (
+        `${isSaved ? "Сохранено" : "Сохранить"}}`
+    );
+
     return (
         <section className="movie">
-            <h1 className="movie__title">33 слова о дизайне</h1>
-            <p className="movie__duration">{`1ч 47м`}</p>
-            <button className="movie__button" type="button" >
-                <img className="movie__button-img" alt={props.imgAlt} src={props.ImgButton}></img>
+            <h1 className="movie__title">{props.movie.nameRU}</h1>
+            <p className="movie__duration">{props.movie.duration + `м`}</p>
+            <button
+                className="movie__button"
+                type="button"
+                onClick={props.onClick}>
+                <img className="movie__button-img" alt={altImg} src={buttonImg}></img>
             </button>
-            <img className="movie__poster" alt="Постер фильма" src={Poster}></img>
+            <img className="movie__poster" alt={props.movie.image.alternativeText} src={'https://api.nomoreparties.co' + props.movie.image.url}></img>
         </section>
     );
 }

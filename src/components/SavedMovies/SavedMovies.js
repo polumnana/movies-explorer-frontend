@@ -1,12 +1,16 @@
+import React from "react";
 import SearchForm from "../SearchForm/SearchForm";
 import Gallery from "../Gallery/Gallery";
-import DeleteButton from "../../images/Delete.svg";
 
 function SavedMovies() {
+
+    const [movies, setMovies] = React.useState([]);
+
+
     return (
         <>
             <SearchForm />
-            <Gallery ImgButton={DeleteButton} />
+            <Gallery movies={movies} />
         </>
     )
 }
