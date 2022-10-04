@@ -13,9 +13,10 @@ function Profile(props) {
     function handleSubmit(evt) {
         evt.preventDefault();
         console.log(1);
-        // props.onSubmit({values.email, values.password});
+        props.onProfile({ name: values.name, email: values.email });
         setClassesListSubmitProfile('');
         setClassesListEditProfile('profile__navigation_visible');
+        // values.resetForm;
     }
 
     function handleEditProfile() {
