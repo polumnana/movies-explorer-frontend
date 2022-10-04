@@ -8,10 +8,10 @@ function Login(props) {
 
     const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
 
-    function handleSubmit(evt){
+    function handleSubmit(evt) {
         evt.preventDefault();
-        console.log(1);
-        // props.onSubmit({values.email, values.password});
+        props.onLogin({ email: values.email, password: values.password });
+        // values.resetForm();
     }
 
     return (
@@ -26,7 +26,7 @@ function Login(props) {
                 <h2 className="login__title">Рады видеть!</h2>
                 <form
                     className="login__form"
-                    name="login" 
+                    name="login"
                     onSubmit={handleSubmit} >
 
                     <label className="login__label">
