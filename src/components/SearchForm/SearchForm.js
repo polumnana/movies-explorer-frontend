@@ -25,7 +25,7 @@ function SearchForm(props) {
                         type="checkbox"
                         name="switch"
                         id="switch" />
-                    <label for="switch" className="searchform__switch-text">Короткометражки</label>
+                    <label htmlFor="switch" className="searchform__switch-text">Короткометражки</label>
                 </div>
             </div>
         </section>
