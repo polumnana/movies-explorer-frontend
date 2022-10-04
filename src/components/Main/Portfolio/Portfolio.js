@@ -22,7 +22,7 @@ function Portfolio(props) {
                             className="portfolio__link"
                             rel="noreferrer"
                             target="_blank"
-                            href="https://github.com/polumnana/russian-travel">Адаптивный сайт
+                            href="https://polumnana.github.io/russian-travel/">Адаптивный сайт
                             <img className="portfolio__img" src={Link} alt="Ссылка на страницу"></img>
                         </a>
                     </li>
@@ -31,7 +31,7 @@ function Portfolio(props) {
                             className="portfolio__link"
                             rel="noreferrer"
                             target="_blank"
-                            href="https://github.com/polumnana/react-mesto-api-full">Одностраничное приложение
+                            href="https://polumnana.frontend.nomoredomains.sbs/">Одностраничное приложение
                             <img className="portfolio__img" src={Link} alt="Ссылка на страницу"></img>
                         </a>
                     </li>
