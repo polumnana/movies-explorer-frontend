@@ -8,10 +8,10 @@ function Register(props) {
 
     const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
 
-    function handleSubmit(evt){
+    function handleSubmit(evt) {
         evt.preventDefault();
-        console.log(2);
-        // props.onSubmit({values.email, values.password});
+        props.onRegister({ name: values.name, email: values.email, password: values.password });
+        // values.resetForm();
     }
 
     return (
