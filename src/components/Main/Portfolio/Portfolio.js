@@ -13,7 +13,7 @@ function Portfolio(props) {
                             className="portfolio__link"
                             rel="noreferrer"
                             target="_blank"
-                            href="https://github.com/polumnana/how-to-learn">Статичный сайт
+                            href="https://polumnana.github.io/how-to-learn/">Статичный сайт
                             <img className="portfolio__img" src={Link} alt="Ссылка на страницу"></img>
                         </a>
                     </li>
