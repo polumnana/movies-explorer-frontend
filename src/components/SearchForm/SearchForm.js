@@ -9,7 +9,7 @@ function SearchForm(props) {
     return (
         <section className="searchform">
             <div className="searchform__container">
-                <img className="searchform__img" src={Find} alt="Изображение лупы"></img>
+                <img className="searchform__img" src={Find} alt="Поиск"></img>
                 <input
                     className="searchform__input"
                     placeholder="Фильм"
