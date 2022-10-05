@@ -64,7 +64,8 @@ class MainApi {
     fetchSavedMovies() {
         return fetch(this._baseUrl + '/movies', {
             headers: this._getHeaders(),
-        }).then(this._checkResponse);
+        }).then(this._checkResponse)
+        .then(movie => this._convertMovie(movie));
     }
 
     // запрос на сохранение фильма
@@ -78,11 +79,11 @@ class MainApi {
                 duration: movie.duration,
                 year: movie.year,
                 description: movie.description,
-                image: `https://api.nomoreparties.co${movie.image.url}`,
+                image: movie.image.url,
                 trailerLink: movie.trailerLink,
                 thumbnail: movie.thumbnail,
                 owner: movie.owner,
-                movieId: movie.movieId,
+                movieId: movie.id,
                 nameRU: movie.nameRU,
                 nameEN: movie.nameEN,
             })
@@ -106,6 +107,23 @@ class MainApi {
             'Authorization': this._getToken(),
             'Content-Type': 'application/json'
         };
+    }
+
+    _convertMovie(movie) {
+      return {
+        country: movie.country,
+        director: movie.director,
+        duration: movie.duration,
+        year: movie.year,
+        description: movie.description,
+        image: movie.image.url,
+        trailerLink: movie.trailerLink,
+        thumbnail: movie.thumbnail,
+        owner: movie.owner,
+        id: movie.movieId,
+        nameRU: movie.nameRU,
+        nameEN: movie.nameEN,
+      };
     }
 
     _checkResponse(res) {
