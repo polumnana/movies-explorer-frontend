@@ -1,18 +1,18 @@
 import React from 'react';
-import { Route, Routes, useLocation, useNavigate, } from 'react-router-dom';
-import ProtectedRoute from '../utils/ProtectedRoute';
-import Main from './Main/Main';
-import NotFound from './NotFound/NotFound';
-import Login from './Login/Login';
-import Register from './Register/Register';
-import Profile from './Profile/Profile';
-import Movies from './Movies/Movies';
-import SavedMovies from './SavedMovies/SavedMovies';
-import Header from './Header/Header';
-import Footer from './Footer/Footer';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import apiMain from '../utils/MainApi';
+import ProtectedRoute from '../utils/ProtectedRoute';
 import { withRouter } from '../utils/withRouter';
 import { CurrentUserContext } from './Contexts/CurrentUserContext';
+import Footer from './Footer/Footer';
+import Header from './Header/Header';
+import Login from './Login/Login';
+import Main from './Main/Main';
+import Movies from './Movies/Movies';
+import NotFound from './NotFound/NotFound';
+import Profile from './Profile/Profile';
+import Register from './Register/Register';
+import SavedMovies from './SavedMovies/SavedMovies';
 
 
 function App(props) {
@@ -54,7 +54,7 @@ function App(props) {
   React.useEffect(() => {
     checkUserToken();
 
-    return function() {
+    return function () {
       console.log('unmount app');
     }
   }, [isLoggedIn]);
@@ -84,31 +84,14 @@ function App(props) {
     props.navigate('/movies');
   }
 
-  function onLogin({ email, password }) {
-    apiMain.signin({ email, password })
-      .then((result) => {
+  function onLogin({ name, email }) {
+    setIsLoggedIn(true);
+    setCurrentUser({
+      name: name,
+      email: email,
+    });
 
-        // this.handleInfoTooltip(true);
-
-        if (result.token) {
-          localStorage.setItem('jwt', result.token);
-
-
-          setIsLoggedIn(true);
-          setCurrentUser({
-            name: result.name,
-            email: result.email,
-          });
-          // this.updateCurrentUser();
-
-          navigateMovies(); // перенаправляется на фильмы
-        }
-
-      })
-      .catch((err) => {
-        console.log(err);
-        // this.handleInfoTooltip(false);
-      });
+    navigateMovies(); // перенаправляется на фильмы
   }
 
   return (
