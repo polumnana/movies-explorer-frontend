@@ -16,7 +16,7 @@ function Profile(props) {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    props.onProfile({ name: values.username, email: values.email });
+    props.onEditProfile({ name: values.username, email: values.email });
     setClassesListSubmitProfile('');
     setClassesListEditProfile('profile__navigation_visible');
     // values.resetForm;

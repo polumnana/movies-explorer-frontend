@@ -27,12 +27,10 @@ function App(props) {
 
   function handleSaveMovie() { }
 
-  function onProfile({ name, email }) {
+  function onEditProfile({ name, email }) {
     apiMain.updateUserInfo({ name, email })
       .then((data) => {
         setCurrentUser(data);
-        // this.handleInfoTooltip(true);
-        // navigate('/movies'); // перенаправляется на фильмы
       })
       .catch((err) => {
         // this.handleInfoTooltip(false);
@@ -115,7 +113,7 @@ function App(props) {
             <Route path='*' element={<NotFound />} />
             <Route path='/profile' element={
               <ProtectedRoute isLoggedIn={isLoggedIn}>
-                <Profile onProfile={onProfile} onLogout={onLogout} />
+                <Profile onEditProfile={onEditProfile} onLogout={onLogout} />
               </ProtectedRoute>
             }
             />
