@@ -13,21 +13,17 @@ function Header(props) {
   function getHeader() {
     if (location === '/profile' || location === '/movies' || location === '/saved-movies')
       return <HeaderAuthorized />;
-    else if (location === '/')
+    else if (location === '/' && currentUser.name)
+      return <HeaderAuthorized />;
+    else if (location === '/' && !currentUser.name)
       return <HeaderUnauthorized />;
-  }
-
-  function getLinkTo() {
-    if (currentUser.name)
-      return '/movies';
-    return '/';
   }
 
   return (
     <header className="header">
       <div className='header__container'>
         <Link
-          to={getLinkTo()}
+          to='/'
           className='header__logo'>
           <img
             src={headerLogo}
