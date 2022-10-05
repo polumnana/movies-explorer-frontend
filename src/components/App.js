@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import apiMain from '../utils/MainApi';
 import ProtectedRoute from '../utils/ProtectedRoute';
 import { withRouter } from '../utils/withRouter';
@@ -18,12 +18,6 @@ import SavedMovies from './SavedMovies/SavedMovies';
 function App(props) {
   const [currentUser, setCurrentUser] = React.useState({});
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-  const location = useLocation().pathname;
-
-  function getFooter() {
-    if (location === '/' || location === '/movies' || location === '/saved-movies')
-      return <Footer />;
-  }
 
   function handleSaveMovie() { }
 
@@ -134,7 +128,7 @@ function App(props) {
             />
           </Routes>
         </main>
-        {getFooter()}
+        <Footer />
       </div>
     </CurrentUserContext.Provider>
   );
