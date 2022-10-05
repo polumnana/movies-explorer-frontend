@@ -9,26 +9,16 @@ import Profile from './Profile/Profile';
 import Movies from './Movies/Movies';
 import SavedMovies from './SavedMovies/SavedMovies';
 import Header from './Header/Header';
-import HeaderAuthorized from './Header/HeaderAuthorized/HeaderAuthorized';
-import HeaderUnauthorized from './Header/HeaderUnauthorized/HeaderUnauthorized';
 import Footer from './Footer/Footer';
 import apiMain from '../utils/MainApi';
-import { createContext } from 'react';
 import { withRouter } from '../utils/withRouter';
+import { CurrentUserContext } from './Contexts/CurrentUserContext';
 
 
 function App(props) {
-  const CurrentUserContext = createContext();
   const [currentUser, setCurrentUser] = React.useState({});
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const location = useLocation().pathname;
-
-  function getHeader() {
-    if (location === '/profile' || location === '/movies' || location === '/saved-movies')
-      return <Header><HeaderAuthorized /></Header>;
-    else if (location === '/')
-      return <Header><HeaderUnauthorized /></Header>;
-  }
 
   function getFooter() {
     if (location === '/' || location === '/movies' || location === '/saved-movies')
@@ -64,7 +54,7 @@ function App(props) {
   React.useEffect(() => {
     checkUserToken();
 
-    return function lala() {
+    return function() {
       console.log('unmount app');
     }
   }, [isLoggedIn]);
@@ -124,7 +114,7 @@ function App(props) {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className='page'>
-        {getHeader()}
+        <Header />
         <main className='main'>
           <Routes>
             <Route path='/' element={<Main />} />
