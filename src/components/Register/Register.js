@@ -1,17 +1,29 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import Logo from '../../images/Logo.svg';
+import apiMain from '../../utils/MainApi';
 import { useFormWithValidation } from '../../utils/validate.js';
 
 
 function Register(props) {
 
-  const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
+  const { values, handleChange, errors, isValid, resetForm, setErrors } = useFormWithValidation();
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    props.onRegister({ name: values.name, email: values.email, password: values.password });
-    // values.resetForm();
+
+    apiMain
+      .signup({
+        name: values.name,
+        email: values.email,
+        password: values.password
+      }).then((result) => {
+        props.onRegister({ email: values.email, password: values.password });
+      })
+      .catch((err) => {
+        console.log(err);
+        setErrors({ ...errors, 'errorsLogin': err });
+      });
   }
 
   return (
@@ -80,7 +92,7 @@ function Register(props) {
           <span className="register__type-input-error password-input-error">{errors.password}</span>
 
           <section className="register__submit">
-            <span className="register__submit_type-error register-submit-error"></span>
+            <span className="register__submit_type-error register-submit-error">{errors.errorsLogin}</span>
             <button
               className="register__submit-button"
               type="submit"

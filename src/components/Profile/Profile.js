@@ -75,7 +75,10 @@ function Profile(props) {
             type="button"
             onClick={handleEditProfile}
           >Редактировать</button>
-          <Link to="/" className="profile__signout-link">Выйти из аккаунта</Link>
+          <button
+            type="button"
+            onClick={props.onLogout}
+            className="profile__signout-link">Выйти из аккаунта</button>
         </section>
 
         <section className={`profile__submit ${classesListSubmitProfile}`}>

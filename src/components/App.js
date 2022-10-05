@@ -39,18 +39,6 @@ function App(props) {
       });
   }
 
-  function onRegister({ name, email, password }) {
-    apiMain.signup({ name, email, password })
-      .then((result) => {
-        onLogin(); //сразу авторизуется
-        // navigate('/movies'); // перенаправляется на фильмы
-        // this.handleInfoTooltip(true);
-      })
-      .catch((err) => {
-        // this.handleInfoTooltip(false);
-      });
-  }
-
   React.useEffect(() => {
     checkUserToken();
 
@@ -84,7 +72,7 @@ function App(props) {
     props.navigate('/movies');
   }
 
-  function onLogin({ name, email }) {
+  function onLoginSuccess({ name, email }) {
     setIsLoggedIn(true);
     setCurrentUser({
       name: name,
@@ -92,6 +80,29 @@ function App(props) {
     });
 
     navigateMovies(); // перенаправляется на фильмы
+  }
+
+  function onRegister({ email, password }) {
+    apiMain
+      .signin({
+        email: email,
+        password: password
+      }).then((result) => {
+        if (result.token) {
+          localStorage.setItem('jwt', result.token);
+          onLoginSuccess({ email: email, name: result.name });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  function onLogout() {
+    localStorage.removeItem('jwt');
+    setIsLoggedIn(false);
+    setCurrentUser({});
+    props.navigate('/');
   }
 
   return (
@@ -104,12 +115,12 @@ function App(props) {
             <Route path='*' element={<NotFound />} />
             <Route path='/profile' element={
               <ProtectedRoute isLoggedIn={isLoggedIn}>
-                <Profile onProfile={onProfile} />
+                <Profile onProfile={onProfile} onLogout={onLogout} />
               </ProtectedRoute>
             }
             />
             <Route path='/signup' element={<Register onRegister={onRegister} />} />
-            <Route path='/signin' element={<Login onLogin={onLogin} />} />
+            <Route path='/signin' element={<Login onLogin={onLoginSuccess} />} />
             <Route path='/movies' element={
               <ProtectedRoute isLoggedIn={isLoggedIn}>
                 <Movies onClick={handleSaveMovie} />

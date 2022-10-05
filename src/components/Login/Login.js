@@ -7,7 +7,7 @@ import { useFormWithValidation } from '../../utils/validate.js';
 
 function Login(props) {
 
-  const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
+  const { values, handleChange, errors, isValid, resetForm, setErrors } = useFormWithValidation();
 
   function handleSubmit(evt) {
     evt.preventDefault();
@@ -21,14 +21,11 @@ function Login(props) {
           localStorage.setItem('jwt', result.token);
           props.onLogin({ email: values.email, name: result.name });
         }
-
       })
       .catch((err) => {
         console.log(err);
-        errors.errorsLogin = err;
+        setErrors({ ...errors, 'errorsLogin': err });
       });
-
-    // values.resetForm();
   }
 
   return (
