@@ -1,19 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useFormWithValidation } from '../../utils/validate.js';
-
+import { CurrentUserContext } from '../Contexts/CurrentUserContext.js';
 
 function Profile(props) {
 
-  const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
+  const { values, handleChange, errors, isValid, resetForm, setErrors, setValues } = useFormWithValidation();
   const [classesListEditProfile, setClassesListEditProfile] = React.useState('profile__navigation_visible');
   const [classesListSubmitProfile, setClassesListSubmitProfile] = React.useState('');
   const [isFormDisabled, setIsFormDisabled] = React.useState(true);
+  const currentUser = React.useContext(CurrentUserContext); // получаем значения из контекста
+
+  React.useEffect(() => {
+    setValues({ ...values, username: currentUser.name, email: currentUser.email });
+  }, []);
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    console.log(1);
-    props.onProfile({ name: values.name, email: values.email });
+    props.onProfile({ name: values.username, email: values.email });
     setClassesListSubmitProfile('');
     setClassesListEditProfile('profile__navigation_visible');
     // values.resetForm;
@@ -27,7 +30,7 @@ function Profile(props) {
 
   return (
     <section className="profile">
-      <h2 className="profile__title">Привет, Виталий!</h2>
+      <h2 className="profile__title">Привет, {currentUser.name}!</h2>
       <form
         className="profile__form"
         name="profile"
@@ -40,15 +43,15 @@ function Profile(props) {
             onChange={handleChange}
             id="profile-name-input"
             placeholder="Введите ваше имя"
-            name="name"
+            name="username"
             minLength="2"
             maxLength="30"
-            value={values.name}
+            value={values.username}
             required
             disabled={isFormDisabled}
           />
         </label>
-        <span className="profile__input_type-error name-input-error">{errors.name}</span>
+        <span className="profile__input_type-error name-input-error">{errors.username}</span>
 
 
         <label className="profile__label">
