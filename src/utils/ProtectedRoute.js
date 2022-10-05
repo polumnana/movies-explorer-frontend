@@ -2,11 +2,11 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 
 const ProtectedRoute = ({ isLoggedIn, children }) => {
-    if (!isLoggedIn) {
-        return <Navigate to="/signup" />;
-    }
+  if (!isLoggedIn) {
+    return <Navigate to="/signup" />;
+  }
 
-    return children;
+  return children;
 };
 
 export default ProtectedRoute;

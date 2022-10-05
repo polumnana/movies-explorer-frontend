@@ -6,7 +6,7 @@ import { CurrentUserContext } from '../Contexts/CurrentUserContext.js';
 import HeaderAuthorized from './HeaderAuthorized/HeaderAuthorized';
 import HeaderUnauthorized from './HeaderUnauthorized/HeaderUnauthorized';
 
-function Header(props ) {
+function Header(props) {
   const location = useLocation().pathname;
   const currentUser = React.useContext(CurrentUserContext); // получаем значения из контекста
 
@@ -24,19 +24,19 @@ function Header(props ) {
   }
 
   return (
-      <header className="header">
-          <div className='header__container'>
-              <Link
-                  to={getLinkTo()}
-                  className='header__logo'>
-                  <img
-                      src={headerLogo}
-                      alt="Логотип Фильмы"
-                      className="header__logo-img" />
-              </Link>
-              {getHeader()}
-          </div>
-      </header>
+    <header className="header">
+      <div className='header__container'>
+        <Link
+          to={getLinkTo()}
+          className='header__logo'>
+          <img
+            src={headerLogo}
+            alt="Логотип Фильмы"
+            className="header__logo-img" />
+        </Link>
+        {getHeader()}
+      </div>
+    </header>
   );
 }
 

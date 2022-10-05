@@ -16,8 +16,7 @@ function Login(props) {
       .signin({
         email: values.email,
         password: values.password
-      })
-      .then((result) => {
+      }).then((result) => {
         if (result.token) {
           localStorage.setItem('jwt', result.token);
           props.onLogin({ email: values.email, name: result.name });

@@ -1,107 +1,107 @@
 .footer {
-    margin: 0;
-    width: 1280px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #FAFAFA;
+  margin: 0;
+  width: 1280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FAFAFA;
 }
 
 
 .footer__subscription {
-    width: 1140px;
-    display: flex;
-    justify-content: center;
-    padding: 79px 0 20px;
-    box-sizing: border-box;
+  width: 1140px;
+  display: flex;
+  justify-content: center;
+  padding: 79px 0 20px;
+  box-sizing: border-box;
 }
 
 .footer__line {
-    border-bottom: 1px #E8E8E8 solid;
+  border-bottom: 1px #E8E8E8 solid;
 }
 
 .footer__container {
-    display: flex;
-    justify-content: space-between;
-    width: 1280px;
-    margin: 20px 0 20px;
-    padding: 0 70px 0;
-    box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  width: 1280px;
+  margin: 20px 0 20px;
+  padding: 0 70px 0;
+  box-sizing: border-box;
 }
 
 
 .footer__copyright {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .footer__text {
-    margin: 0;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 16px;
+  margin: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
 }
 
 .footer__text_transparent {
-    color: #A0A0A0;
+  color: #A0A0A0;
 }
 
 .footer__text_copyright {
-    margin: 0 0 0 20px;
+  margin: 0 0 0 20px;
 }
 
 @media screen and (min-width: 320px) and (max-width: 1279px) {
-    .footer {
-        width: 100%;
-        background-color: #fff;
-    }
+  .footer {
+    width: 100%;
+    background-color: #fff;
+  }
 
-    .footer__subscription {
-        width: 92%;
-    }
+  .footer__subscription {
+    width: 92%;
+  }
 
-    .footer__container {
-        width: 92%;
-        padding: 0;
-    }
+  .footer__container {
+    width: 92%;
+    padding: 0;
+  }
 }
 
 @media screen and (min-width: 320px) and (max-width: 500px) {
-    .footer {
-        width: 100%;
-    }
+  .footer {
+    width: 100%;
+  }
 
-    .footer__subscription {
-        width: 94%;
-        padding: 79px 0 21px;
-    }
+  .footer__subscription {
+    width: 94%;
+    padding: 79px 0 21px;
+  }
 
-    .footer__container {
-        flex-direction: column-reverse;
-        align-items: center;
-        width: 94%;
-        margin: 20px 0 37px;
-        padding: 0;
-    }
+  .footer__container {
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 94%;
+    margin: 20px 0 37px;
+    padding: 0;
+  }
 
-    .footer__copyright {
-        display: flex;
-        flex-direction: column;
-    }
+  .footer__copyright {
+    display: flex;
+    flex-direction: column;
+  }
 
-    .footer__text {
-        font-size: 12px;
-        line-height: 15px;
-    }
+  .footer__text {
+    font-size: 12px;
+    line-height: 15px;
+  }
 
-    .footer__text_copyright {
-        margin: 0 0 12px;
-        text-align: center;
-    }
+  .footer__text_copyright {
+    margin: 0 0 12px;
+    text-align: center;
+  }
 
-    .footer__text_time {
-        margin: 18px 0 0;
-    }
+  .footer__text_time {
+    margin: 18px 0 0;
+  }
 }
