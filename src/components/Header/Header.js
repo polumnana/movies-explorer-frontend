@@ -9,30 +9,34 @@ import HeaderUnauthorized from './HeaderUnauthorized/HeaderUnauthorized';
 function Header(props) {
   const location = useLocation().pathname;
   const currentUser = React.useContext(CurrentUserContext); // получаем значения из контекста
+  const showHeader = location === '/' || location === '/profile' || location === '/movies' || location === '/saved-movies';
 
   function getHeader() {
-    if (location === '/profile' || location === '/movies' || location === '/saved-movies')
+    if (currentUser.name)
       return <HeaderAuthorized />;
-    else if (location === '/' && currentUser.name)
-      return <HeaderAuthorized />;
-    else if (location === '/' && !currentUser.name)
+    else
       return <HeaderUnauthorized />;
   }
 
   return (
-    <header className="header">
-      <div className='header__container'>
-        <Link
-          to='/'
-          className='header__logo'>
-          <img
-            src={headerLogo}
-            alt="Логотип Фильмы"
-            className="header__logo-img" />
-        </Link>
-        {getHeader()}
-      </div>
-    </header>
+    <>
+      {showHeader &&
+        <header className="header">
+          <div className='header__container'>
+            <Link
+              to='/'
+              className='header__logo'>
+              <img
+                src={headerLogo}
+                alt="Логотип Фильмы"
+                className="header__logo-img" />
+            </Link>
+            {getHeader()}
+          </div>
+        </header>
+      }
+    </>
+
   );
 }
 

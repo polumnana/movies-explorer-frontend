@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import apiMain from '../utils/MainApi';
 import ProtectedRoute from '../utils/ProtectedRoute';
 import { withRouter } from '../utils/withRouter';
@@ -14,10 +14,10 @@ import Profile from './Profile/Profile';
 import Register from './Register/Register';
 import SavedMovies from './SavedMovies/SavedMovies';
 
-
 function App(props) {
   const [currentUser, setCurrentUser] = React.useState({});
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const location = useLocation().pathname;
 
   function handleSaveMovie() { }
 
@@ -33,10 +33,6 @@ function App(props) {
 
   React.useEffect(() => {
     checkUserToken();
-
-    return function () {
-      console.log('unmount app');
-    }
   }, [isLoggedIn]);
 
   function checkUserToken() {
@@ -45,13 +41,11 @@ function App(props) {
       apiMain.checkToken(token)
         .then((result) => {
           if (result) {
-            console.log('user ok');
             setCurrentUser({
               name: result.name,
               email: result.email,
             });
             setIsLoggedIn(true);
-            navigateMovies();
           }
         })
         .catch((err) => {
