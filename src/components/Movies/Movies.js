@@ -1,26 +1,17 @@
 import React from "react";
-import apiMovie from "../../utils/MoviesApi";
 import Gallery from "../Gallery/Gallery";
 import SearchForm from "../SearchForm/SearchForm";
 
-function Movies() {
-
-  const [movies, setMovies] = React.useState([]);
-
-  React.useEffect(() => {
-    apiMovie
-      .fetchMovies()
-      .then((res) => {
-        setMovies(res);
-      })
-      .catch((err) => console.error(err));
-  }, []);
-
+function Movies(props) {
 
   return (
     <>
       <SearchForm />
-      <Gallery movies={movies} />
+      <Gallery
+        movies={props.movies}
+        onSaveMovie={props.onSaveMovie}
+        onDeleteMovie={props.onDeleteMovie}
+        savedMovies={props.savedMovies} />
     </>
   )
 }

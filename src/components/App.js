@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import apiMain from '../utils/MainApi';
+import apiMovie from '../utils/MoviesApi';
 import ProtectedRoute from '../utils/ProtectedRoute';
 import { withRouter } from '../utils/withRouter';
 import { CurrentUserContext } from './Contexts/CurrentUserContext';
@@ -19,7 +20,33 @@ function App(props) {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const location = useLocation().pathname;
 
-  function handleSaveMovie() { }
+  const [allMovies, setAllMovies] = React.useState([]);
+  const [filteredMovies, setFilteredMovies] = React.useState([]);
+  const [savedMovies, setSavedMovies] = React.useState([]);
+  const [filteredSavedMovies, setFilteredSavedMovies] = React.useState([]);
+
+  function handleSaveMovie(movie) {
+    apiMain
+      .addMovie(movie)
+      .then((savedMovie) => {
+        setSavedMovies([savedMovie, ...savedMovies]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  function handleDeleteMovie(movie) {
+    apiMain
+      .deleteMovie(movie)
+      .then((data) => {
+        const arr = savedMovies.filter((m) => m.id !== data.id);
+        setSavedMovies(arr);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   function onEditProfile({ name, email }) {
     apiMain.updateUserInfo({ name, email })
@@ -33,6 +60,26 @@ function App(props) {
 
   React.useEffect(() => {
     checkUserToken();
+
+    if (isLoggedIn) {
+      apiMain
+        .fetchSavedMovies()
+        .then((res) => {
+          setSavedMovies(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
+      apiMovie
+        .fetchMovies()
+        .then((res) => {
+          setAllMovies(res);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
   }, [isLoggedIn]);
 
   function checkUserToken() {
@@ -109,14 +156,24 @@ function App(props) {
             <Route path='/signin' element={<Login onLogin={onLoginSuccess} />} />
             <Route path='/movies' element={
               <ProtectedRoute isLoggedIn={isLoggedIn}>
-                <Movies onClick={handleSaveMovie} />
+                <Movies
+                  movies={filteredMovies}
+                  onSaveMovie={handleSaveMovie}
+                  onDeleteMovie={handleDeleteMovie}
+                  savedMovies={savedMovies}
+                />
               </ProtectedRoute>
             }
             />
             <Route path='/saved-movies'
               element={
                 <ProtectedRoute isLoggedIn={isLoggedIn}>
-                  <SavedMovies />
+                  <SavedMovies
+                    movies={filteredSavedMovies}
+                    onSaveMovie={handleSaveMovie}
+                    onDeleteMovie={handleDeleteMovie}
+                    savedMovies={savedMovies}
+                  />
                 </ProtectedRoute>
               }
             />

@@ -8,8 +8,9 @@ function Gallery(props) {
 
         {props.movies.map((movie) => (
           <Movie
-            onMovieDelete={props.onMovieDelete}
-            onSave={props.onSave}
+            onDeleteMovie={props.onDeleteMovie}
+            onSaveMovie={props.onSaveMovie}
+            savedMovies={props.savedMovies}
             movie={movie}
             key={movie.id} />
         ))}

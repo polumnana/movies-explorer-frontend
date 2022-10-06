@@ -65,7 +65,7 @@ class MainApi {
     return fetch(this._baseUrl + '/movies', {
       headers: this._getHeaders(),
     }).then(this._checkResponse)
-      .then(movie => this._convertMovie(movie));
+      .then(movies => movies.map(movie => this._convertMovie(movie)));
   }
 
   // запрос на сохранение фильма
