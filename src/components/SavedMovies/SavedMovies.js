@@ -6,7 +6,9 @@ function SavedMovies(props) {
 
   return (
     <>
-      <SearchForm />
+      <SearchForm
+        onSearch={props.onSearch}
+      />
       <Gallery
         movies={props.movies}
         onSaveMovie={props.onSaveMovie}

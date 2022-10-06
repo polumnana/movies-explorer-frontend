@@ -139,6 +139,14 @@ function App(props) {
     props.navigate('/');
   }
 
+  function handleSearch(searchText, checkboxState) {
+    console.log(searchText, checkboxState);
+  }
+
+  function handleSearchSaved(searchText, checkboxState) {
+    console.log(searchText, checkboxState);
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className='page'>
@@ -162,6 +170,7 @@ function App(props) {
                   onSaveMovie={handleSaveMovie}
                   onDeleteMovie={handleDeleteMovie}
                   savedMovies={savedMovies}
+                  onSearch={handleSearch}
                 />
               </ProtectedRoute>
             }
@@ -174,6 +183,7 @@ function App(props) {
                     onSaveMovie={handleSaveMovie}
                     onDeleteMovie={handleDeleteMovie}
                     savedMovies={savedMovies}
+                    onSearch={handleSearchSaved}
                   />
                 </ProtectedRoute>
               }
