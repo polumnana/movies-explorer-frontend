@@ -140,7 +140,19 @@ function App(props) {
   }
 
   function handleSearch(searchText, checkboxState) {
-    console.log(searchText, checkboxState);
+    searchText = searchText.trim().toLowerCase();
+
+    if (searchText === '') {
+      setFilteredMovies([]);
+      return;
+    }
+
+    let result = allMovies.filter(movie => movie.nameRU.toLowerCase().includes(searchText));
+    if (checkboxState) {
+      result = result.filter(movie => movie.duration < 40);
+    }
+
+    setFilteredMovies(result);
   }
 
   function handleSearchSaved(searchText, checkboxState) {
