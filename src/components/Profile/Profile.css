@@ -92,6 +92,8 @@
 
 .profile__signout-link {
   margin: 0;
+  border: none;
+  background-color: #fff;
   text-decoration: none;
   cursor: pointer;
   font-style: normal;
