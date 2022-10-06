@@ -93,6 +93,7 @@ function App(props) {
               email: result.email,
             });
             setIsLoggedIn(true);
+            props.navigate(location);
           }
         })
         .catch((err) => {
