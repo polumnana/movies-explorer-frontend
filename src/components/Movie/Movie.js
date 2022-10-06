@@ -27,8 +27,8 @@ function Movie(props) {
         onClick={props.onClick}>
         <img className="movie__button-img" alt={altImg} src={buttonImg}></img>
       </button>
-      <a href={props.movie.trailerLink}>
-        <img className="movie__poster" alt={props.movie.image.alternativeText} src={'https://api.nomoreparties.co' + props.movie.image.url}></img>
+      <a className="movie__poster" href={props.movie.trailerLink}>
+        <img className="movie__poster-img" alt={props.movie.image.alternativeText} src={'https://api.nomoreparties.co' + props.movie.image.url}></img>
       </a>
     </section>
   );
