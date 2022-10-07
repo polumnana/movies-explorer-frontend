@@ -9,6 +9,11 @@ function Login(props) {
 
   const { values, handleChange, errors, isValid, resetForm, setErrors } = useFormWithValidation();
 
+  const loginButtonClass = !isValid
+    ? "login__submit-button login__submit-button_inactive"
+    : "login__submit-button";
+
+
   function handleSubmit(evt) {
     evt.preventDefault();
 
@@ -79,7 +84,8 @@ function Login(props) {
           <section className="login__submit">
             <span className="login__submit_type-error login-submit-error">{errors.errorsLogin}</span>
             <button
-              className="login__submit-button"
+              className={loginButtonClass}
+              disabled={!isValid}
               type="submit"
             >Войти
             </button>

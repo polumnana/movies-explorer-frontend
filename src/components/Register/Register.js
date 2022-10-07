@@ -9,6 +9,10 @@ function Register(props) {
 
   const { values, handleChange, errors, isValid, resetForm, setErrors } = useFormWithValidation();
 
+  const registerButtonClass = !isValid
+    ? "register__submit-button register__submit-button_inactive"
+    : "register__submit-button";
+
   function handleSubmit(evt) {
     evt.preventDefault();
 
@@ -94,8 +98,9 @@ function Register(props) {
           <section className="register__submit">
             <span className="register__submit_type-error register-submit-error">{errors.errorsLogin}</span>
             <button
-              className="register__submit-button"
+              className={registerButtonClass}
               type="submit"
+              disabled={!isValid}
             >Зарегистрироваться
             </button>
           </section>

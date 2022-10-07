@@ -10,6 +10,11 @@ function Profile(props) {
   const [isFormDisabled, setIsFormDisabled] = React.useState(true);
   const currentUser = React.useContext(CurrentUserContext); // получаем значения из контекста
 
+  const submitButtonClass = !isValid
+    ? "profile__submit-button profile__submit-button_inactive"
+    : "profile__submit-button";
+
+
   React.useEffect(() => {
     setValues({ ...values, username: currentUser.name, email: currentUser.email });
   }, []);
@@ -87,7 +92,8 @@ function Profile(props) {
         <section className={`profile__submit ${classesListSubmitProfile}`}>
           <span className="profile__submit_type-error profile-submit-error"></span>
           <button
-            className="profile__submit-button"
+            className={submitButtonClass}
+            disabled={!isValid}
             type="submit"
           >Сохранить
           </button>
