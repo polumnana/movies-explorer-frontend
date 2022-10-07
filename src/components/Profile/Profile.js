@@ -4,7 +4,7 @@ import { CurrentUserContext } from '../Contexts/CurrentUserContext.js';
 
 function Profile(props) {
 
-  const { values, handleChange, errors, isValid, setValues } = useFormWithValidation();
+  const { values, handleChange, errors, isValid, resetForm, setValues } = useFormWithValidation();
   const [classesListEditProfile, setClassesListEditProfile] = React.useState('profile__navigation_visible');
   const [classesListSubmitProfile, setClassesListSubmitProfile] = React.useState('');
   const [isFormDisabled, setIsFormDisabled] = React.useState(true);
@@ -24,7 +24,7 @@ function Profile(props) {
     props.onEditProfile({ name: values.username, email: values.email });
     setClassesListSubmitProfile('');
     setClassesListEditProfile('profile__navigation_visible');
-    // values.resetForm;
+    resetForm();
   }
 
   function handleEditProfile() {
