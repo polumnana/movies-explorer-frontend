@@ -22,18 +22,19 @@ function SearchForm(props) {
 
   return (
     <section className="searchform">
-      <div className="searchform__container">
+      <form className="searchform__container">
         <img className="searchform__img" src={Find} alt="Поиск"></img>
         <input
           className="searchform__input"
           placeholder="Фильм"
           type="search"
           onChange={changeSearchForm}
+          minLength="1"
           required
         ></input>
         <button
           className="searchform__button-find"
-          type="button"
+          type="submit"
           onClick={searchMovies}>
           <img className="searchform__button-find-img" src={FindButton} alt="Кнопка поиск"></img>
         </button>
@@ -47,7 +48,7 @@ function SearchForm(props) {
           />
           <label htmlFor="switch" className="searchform__switch-text">Короткометражки</label>
         </div>
-      </div>
+      </form>
     </section>
   )
 }
