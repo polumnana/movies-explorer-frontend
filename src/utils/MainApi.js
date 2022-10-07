@@ -20,7 +20,6 @@ class MainApi {
 
   //Вход
   signin({ email, password }) {
-
     return fetch(`${this._baseUrl}/signin`, {
       method: 'POST',
       headers: {
@@ -79,23 +78,25 @@ class MainApi {
         duration: movie.duration,
         year: movie.year,
         description: movie.description,
-        image: movie.image.url,
+        image: movie.thumbnail || movie.image.url,
         trailerLink: movie.trailerLink,
-        thumbnail: movie.thumbnail,
+        thumbnail: movie.thumbnail || movie.image.url,
         owner: movie.owner,
         movieId: movie.id,
         nameRU: movie.nameRU,
         nameEN: movie.nameEN,
       })
-    }).then(this._checkResponse);
+    }).then(this._checkResponse)
+      .then(this._convertMovie);
   }
 
   // запрос на удаление фильма
   deleteMovie(movieId) {
-    return fetch(this._baseUrl + `/cards/${movieId}`, {
+    return fetch(this._baseUrl + `/movies/${movieId}`, {
       method: 'DELETE',
       headers: this._getHeaders(),
-    }).then(this._checkResponse);
+    }).then(this._checkResponse)
+      .then(this._convertMovie);
   }
 
   _getToken() {
@@ -110,20 +111,8 @@ class MainApi {
   }
 
   _convertMovie(movie) {
-    return {
-      country: movie.country,
-      director: movie.director,
-      duration: movie.duration,
-      year: movie.year,
-      description: movie.description,
-      image: movie.image.url,
-      trailerLink: movie.trailerLink,
-      thumbnail: movie.thumbnail,
-      owner: movie.owner,
-      id: movie.movieId,
-      nameRU: movie.nameRU,
-      nameEN: movie.nameEN,
-    };
+    movie.id = movie.movieId;
+    return movie;
   }
 
   _checkResponse(res) {

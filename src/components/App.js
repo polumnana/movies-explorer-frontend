@@ -29,7 +29,9 @@ function App(props) {
     apiMain
       .addMovie(movie)
       .then((savedMovie) => {
-        setSavedMovies([savedMovie, ...savedMovies]);
+        const arr = [savedMovie, ...savedMovies];
+        setSavedMovies(arr);
+        setFilteredSavedMovies(arr);
       })
       .catch((err) => {
         console.log(err);
@@ -37,11 +39,13 @@ function App(props) {
   }
 
   function handleDeleteMovie(movie) {
+    const savedMovie = savedMovies.find((item) => item.id === movie.id);
     apiMain
-      .deleteMovie(movie)
+      .deleteMovie(savedMovie._id)
       .then((data) => {
-        const arr = savedMovies.filter((m) => m.id !== data.id);
+        const arr = savedMovies.filter((m) => m.id !== data.movieId);
         setSavedMovies(arr);
+        setFilteredSavedMovies(arr);
       })
       .catch((err) => {
         console.log(err);
@@ -66,6 +70,7 @@ function App(props) {
         .fetchSavedMovies()
         .then((res) => {
           setSavedMovies(res);
+          setFilteredSavedMovies(res);
         })
         .catch((err) => {
           console.log(err);

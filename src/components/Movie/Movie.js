@@ -14,7 +14,7 @@ function Movie(props) {
   );
 
   const altImg = (
-    `${isSaved ? "Сохранено" : "Сохранить"}}`
+    `${isSaved ? "Сохранено" : "Сохранить"}`
   );
 
   const durationHours = Math.floor(props.movie.duration / 60);
@@ -26,9 +26,9 @@ function Movie(props) {
 
   function handleClick() {
     if (isSaved)
-      props.onDeleteMovie();
+      props.onDeleteMovie(props.movie);
     else
-      props.onSaveMovie();
+      props.onSaveMovie(props.movie);
   }
 
   return (
@@ -42,7 +42,7 @@ function Movie(props) {
         <img className="movie__button-img" alt={altImg} src={buttonImg}></img>
       </button>
       <a className="movie__poster" href={props.movie.trailerLink}>
-        <img className="movie__poster-img" alt={props.movie.image.alternativeText} src={'https://api.nomoreparties.co' + props.movie.image.url}></img>
+        <img className="movie__poster-img" alt={props.movie.nameRU} src={props.movie.thumbnail}></img>
       </a>
     </section>
   );

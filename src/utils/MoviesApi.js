@@ -9,7 +9,15 @@ class MoviesApi {
       headers: {
         'Content-Type': 'application/json',
       },
-    }).then(this._checkResponse);
+    }).then(this._checkResponse)
+      .then(movies => movies.map(movie => this._convertMovie(movie)));
+  }
+
+  _convertMovie(movie) {
+    const url = 'https://api.nomoreparties.co' + movie.image.url;
+    movie.thumbnail = url;
+    movie.image = url;
+    return movie;
   }
 
   _checkResponse(res) {
