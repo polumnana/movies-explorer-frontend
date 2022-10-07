@@ -13,16 +13,26 @@ function SearchForm(props) {
   function changeCheckboxState() {
     const newValue = !checkboxState;
     setCheckboxState(newValue);
-    props.onSearch(searchText, newValue);
+
+    props.onSetCheckbox(newValue);
   }
 
-  function searchMovies() {
+  function handleSubmit(evt) {
+    evt.preventDefault();
+
     props.onSearch(searchText, checkboxState);
   }
 
+  React.useEffect(() => {
+    setSearchText(props.searchText);
+    setCheckboxState(props.checkboxState);
+  }, [props.checkboxState, props.searchText]);
+
   return (
     <section className="searchform">
-      <form className="searchform__container">
+      <form
+        className="searchform__container"
+        onSubmit={handleSubmit}>
         <img className="searchform__img" src={Find} alt="Поиск"></img>
         <input
           className="searchform__input"
@@ -30,12 +40,12 @@ function SearchForm(props) {
           type="search"
           onChange={changeSearchForm}
           minLength="1"
+          value={searchText}
           required
         ></input>
         <button
           className="searchform__button-find"
-          type="submit"
-          onClick={searchMovies}>
+          type="submit">
           <img className="searchform__button-find-img" src={FindButton} alt="Кнопка поиск"></img>
         </button>
         <div className="searchform__switch">
@@ -45,6 +55,7 @@ function SearchForm(props) {
             name="switch"
             id="switch"
             onClick={changeCheckboxState}
+            checked={checkboxState}
           />
           <label htmlFor="switch" className="searchform__switch-text">Короткометражки</label>
         </div>

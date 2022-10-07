@@ -9,6 +9,9 @@ function Movies(props) {
     <>
       <SearchForm
         onSearch={props.onSearch}
+        onSetCheckbox={props.onSetCheckbox}
+        searchText={props.searchText}
+        checkboxState={props.checkboxState}
       />
       {props.isLoading ? (
         <Preloader />

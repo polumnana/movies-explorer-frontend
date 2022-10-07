@@ -27,6 +27,11 @@ function App(props) {
 
   const [isLoading, setIsLoading] = React.useState(false);
 
+  const [searchTextMovies, setSearchTextMovies] = React.useState('');
+  const [searchTextSavedMovies, setSearchTextSavedMovies] = React.useState('');
+  const [moviesCheckbox, setMoviesCheckbox] = React.useState(false);
+  const [savedMoviesCheckbox, setSavedMoviesCheckbox] = React.useState(false);
+
   function handleSaveMovie(movie) {
     apiMain
       .addMovie(movie)
@@ -61,12 +66,18 @@ function App(props) {
   React.useEffect(() => {
     checkUserToken();
 
+    setSearchTextMovies(localStorage.getItem('searchTextMovies'));
+    setSearchTextSavedMovies(localStorage.getItem('searchTextSavedMovies'));
+
+    setMoviesCheckbox(localStorage.getItem('moviesCheckbox') === 'true');
+    setSavedMoviesCheckbox(localStorage.getItem('savedMoviesCheckbox') === 'true');
+
     if (isLoggedIn) {
       apiMain
         .fetchSavedMovies()
         .then((res) => {
           setSavedMovies(res);
-          setFilteredSavedMovies(res);
+          setFilteredSavedMovies([]);
         })
         .catch((err) => {
           console.log(err);
@@ -76,6 +87,12 @@ function App(props) {
       setAllMovies(arr);
     }
   }, [isLoggedIn]);
+
+  React.useEffect(() => {
+    if (isLoggedIn) {
+      handleSearchSavedMovies(searchTextSavedMovies, savedMoviesCheckbox);
+    }
+  }, [isLoggedIn, searchTextSavedMovies, savedMoviesCheckbox, savedMovies]);
 
   function checkUserToken() {
     const token = localStorage.getItem('jwt');
@@ -131,16 +148,22 @@ function App(props) {
     localStorage.removeItem('jwt');
     setIsLoggedIn(false);
     setCurrentUser({});
+    setSavedMovies([]);
+    setFilteredMovies([]);
+    setFilteredSavedMovies([]);
     props.navigate('/');
   }
 
-  function handleSearch(searchText, checkboxState) {
+  function handleSearch(searchText, moviesCheckbox) {
     searchText = searchText.trim().toLowerCase();
 
     if (searchText === '') {
       setFilteredMovies([]);
       return;
     }
+
+    setSearchTextMovies(searchText);
+    localStorage.setItem('searchTextMovies', searchText);
 
     if (!localStorage.getItem('allmovies')) {
       setIsLoading(true);
@@ -151,7 +174,7 @@ function App(props) {
           setAllMovies(res);
 
           let result = res.filter(movie => movie.nameRU.toLowerCase().includes(searchText));
-          if (checkboxState) {
+          if (moviesCheckbox) {
             result = result.filter(movie => movie.duration < 40);
           }
 
@@ -165,7 +188,7 @@ function App(props) {
         });
     } else {
       let result = allMovies.filter(movie => movie.nameRU.toLowerCase().includes(searchText));
-      if (checkboxState) {
+      if (moviesCheckbox) {
         result = result.filter(movie => movie.duration < 40);
       }
 
@@ -173,8 +196,39 @@ function App(props) {
     }
   }
 
-  function handleSearchSaved(searchText, checkboxState) {
-    console.log(searchText, checkboxState);
+  function handleSetCheckboxMovies(value) {
+    setMoviesCheckbox(value);
+    localStorage.setItem('moviesCheckbox', value);
+
+    if (searchTextMovies)
+      handleSearch(searchTextMovies, value);
+  }
+
+  function handleSetCheckboxSavedMovies(value) {
+    setSavedMoviesCheckbox(value);
+    localStorage.setItem('savedMoviesCheckbox', value);
+
+    if (searchTextSavedMovies)
+      handleSearchSavedMovies(searchTextSavedMovies, value);
+  }
+
+  function handleSearchSavedMovies(searchText, savedMoviesCheckbox) {
+    searchText = searchText.trim().toLowerCase();
+
+    if (searchText === '') {
+      setFilteredMovies(savedMovies);
+      return;
+    }
+
+    setSearchTextSavedMovies(searchText);
+    localStorage.setItem('searchTextSavedMovies', searchText);
+
+    let result = savedMovies.filter(movie => movie.nameRU.toLowerCase().includes(searchText));
+    if (savedMoviesCheckbox) {
+      result = result.filter(movie => movie.duration < 40);
+    }
+
+    setFilteredSavedMovies(result);
   }
 
   return (
@@ -202,6 +256,9 @@ function App(props) {
                   onDeleteMovie={handleDeleteMovie}
                   savedMovies={savedMovies}
                   onSearch={handleSearch}
+                  onSetCheckbox={handleSetCheckboxMovies}
+                  searchText={searchTextMovies}
+                  checkboxState={moviesCheckbox}
                 />
               </ProtectedRoute>
             }
@@ -214,7 +271,10 @@ function App(props) {
                     onSaveMovie={handleSaveMovie}
                     onDeleteMovie={handleDeleteMovie}
                     savedMovies={savedMovies}
-                    onSearch={handleSearchSaved}
+                    onSearch={handleSearchSavedMovies}
+                    onSetCheckbox={handleSetCheckboxSavedMovies}
+                    searchText={searchTextSavedMovies}
+                    checkboxState={savedMoviesCheckbox}
                   />
                 </ProtectedRoute>
               }

@@ -8,6 +8,9 @@ function SavedMovies(props) {
     <>
       <SearchForm
         onSearch={props.onSearch}
+        onSetCheckbox={props.onSetCheckbox}
+        searchText={props.searchText}
+        checkboxState={props.checkboxState}
       />
       <Gallery
         isSavedMoviesPage={true}
