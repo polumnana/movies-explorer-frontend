@@ -14,6 +14,7 @@ function Movies(props) {
         <Preloader />
       ) : (
         <Gallery
+          isSavedMoviesPage={false}
           showButton={true}
           movies={props.movies}
           onSaveMovie={props.onSaveMovie}

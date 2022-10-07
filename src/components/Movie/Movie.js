@@ -1,7 +1,7 @@
 import React from "react";
+import DeleteButton from "../../images/Delete.svg";
 import NoSavedButton from "../../images/NoSaved.svg";
 import SavedButton from "../../images/Saved.svg";
-
 
 function Movie(props) {
 
@@ -10,7 +10,9 @@ function Movie(props) {
 
   // Создаём переменную, которую после зададим в `className` для кнопки лайка
   const buttonImg = (
-    `${isSaved ? SavedButton : NoSavedButton}`
+    props.isSavedMoviesPage ?
+      `${DeleteButton}` :
+      `${isSaved ? SavedButton : NoSavedButton}`
   );
 
   const altImg = (
