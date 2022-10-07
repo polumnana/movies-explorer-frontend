@@ -10,6 +10,7 @@ function SavedMovies(props) {
         onSearch={props.onSearch}
       />
       <Gallery
+        showButton={false}
         movies={props.movies}
         onSaveMovie={props.onSaveMovie}
         onDeleteMovie={props.onDeleteMovie}

@@ -15,7 +15,9 @@ function Gallery(props) {
             key={movie.id} />
         ))}
       </section>
-      <button className="gallery__button" type="button">Ещё</button>
+      {props.showButton &&
+        <button className="gallery__button" type="button">Ещё</button>
+      }
     </section>
   );
 }
