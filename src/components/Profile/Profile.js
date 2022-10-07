@@ -51,6 +51,7 @@ function Profile(props) {
             name="username"
             minLength="2"
             maxLength="30"
+            pattern="[A-Za-zА-Яа-яЁё\s-]+"
             value={values.username}
             required
             disabled={isFormDisabled}
@@ -70,6 +71,7 @@ function Profile(props) {
             name="email"
             minLength="4"
             maxLength="40"
+            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$"
             value={values.email}
             required
             disabled={isFormDisabled}
