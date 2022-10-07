@@ -29,7 +29,7 @@ function Login(props) {
       })
       .catch((err) => {
         console.log(err);
-        setErrors({ ...errors, 'errorsLogin': err });
+        setErrors({ ...errors, 'errorsLogin': 'Что-то пошло не так. Попробуйте ещё раз.' });
       });
   }
 
