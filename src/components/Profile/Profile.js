@@ -4,7 +4,7 @@ import { CurrentUserContext } from '../Contexts/CurrentUserContext.js';
 
 function Profile(props) {
 
-  const { values, handleChange, errors, isValid, resetForm, setErrors, setValues } = useFormWithValidation();
+  const { values, handleChange, errors, isValid, setValues } = useFormWithValidation();
   const [classesListEditProfile, setClassesListEditProfile] = React.useState('profile__navigation_visible');
   const [classesListSubmitProfile, setClassesListSubmitProfile] = React.useState('');
   const [isFormDisabled, setIsFormDisabled] = React.useState(true);

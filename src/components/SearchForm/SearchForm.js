@@ -10,7 +10,7 @@ function SearchForm(props) {
     setSearchText(evt.target.value);
   }
 
-  function changeCheckboxState(evt) {
+  function changeCheckboxState() {
     setCheckboxState(!checkboxState);
   }
 

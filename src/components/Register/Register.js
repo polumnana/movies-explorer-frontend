@@ -7,7 +7,7 @@ import { useFormWithValidation } from '../../utils/validate.js';
 
 function Register(props) {
 
-  const { values, handleChange, errors, isValid, resetForm, setErrors } = useFormWithValidation();
+  const { values, handleChange, errors, isValid, setErrors } = useFormWithValidation();
 
   const registerButtonClass = !isValid
     ? "register__submit-button register__submit-button_inactive"

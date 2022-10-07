@@ -7,7 +7,7 @@ import { useFormWithValidation } from '../../utils/validate.js';
 
 function Login(props) {
 
-  const { values, handleChange, errors, isValid, resetForm, setErrors } = useFormWithValidation();
+  const { values, handleChange, errors, isValid, setErrors } = useFormWithValidation();
 
   const loginButtonClass = !isValid
     ? "login__submit-button login__submit-button_inactive"
