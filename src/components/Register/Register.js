@@ -56,6 +56,7 @@ function Register(props) {
               name="name"
               minLength="2"
               maxLength="30"
+              pattern="[A-Za-zА-Яа-яЁё\s-]+"
               value={values.name}
               required
             />
@@ -73,6 +74,7 @@ function Register(props) {
               name="email"
               minLength="4"
               maxLength="40"
+              pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
               value={values.email}
               required
             />
