@@ -17,6 +17,13 @@ function Movie(props) {
     `${isSaved ? "Сохранено" : "Сохранить"}}`
   );
 
+  const durationHours = Math.floor(props.movie.duration / 60);
+  const durationMinutes = Math.floor(props.movie.duration % 60);
+
+  const duration = durationHours > 0
+    ? `${durationHours} ч ${durationMinutes} м`
+    : `${durationMinutes} м`;
+
   function handleClick() {
     if (isSaved)
       props.onDeleteMovie();
@@ -27,7 +34,7 @@ function Movie(props) {
   return (
     <section className="movie">
       <h1 className="movie__title">{props.movie.nameRU}</h1>
-      <p className="movie__duration">{props.movie.duration + `м`}</p>
+      <p className="movie__duration">{duration}</p>
       <button
         className="movie__button"
         type="button"
