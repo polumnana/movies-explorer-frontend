@@ -166,7 +166,7 @@ function App(props) {
         <main className='main'>
           <Routes>
             <Route path='/' element={<Main />} />
-            <Route path='*' element={<NotFound />} />
+            <Route path='*' element={<NotFound navigate={props.navigate} />} />
             <Route path='/profile' element={
               <ProtectedRoute isLoggedIn={isLoggedIn}>
                 <Profile onEditProfile={onEditProfile} onLogout={onLogout} />
