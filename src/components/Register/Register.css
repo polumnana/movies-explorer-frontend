@@ -78,6 +78,7 @@
 
 .register__type-input-error {
   display: block;
+  width: 396px;
   height: 12px;
   margin: 6px 0 0;
   font-style: normal;
@@ -184,5 +185,14 @@
   .register__signin-text {
     font-size: 12px;
     line-height: 15px;
+  }
+
+  .register__signin-link {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .register__type-input-error {
+    width: 260px;
   }
 }

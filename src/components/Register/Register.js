@@ -60,7 +60,7 @@ function Register(props) {
               required
             />
           </label>
-          <span className="register__type-input-error name-input-error">{errors.name}</span>
+          <span className="register__type-input-error">{errors.name}</span>
 
           <label className="register__label">
             <h2 className="register__subtitle">E-mail</h2>
@@ -78,7 +78,7 @@ function Register(props) {
               required
             />
           </label>
-          <span className="register__type-input-error email-input-error">{errors.email}</span>
+          <span className="register__type-input-error">{errors.email}</span>
 
           <label className="register__label">
             <h2 className="register__subtitle">Пароль</h2>

@@ -54,6 +54,7 @@
 
 .profile__input_type-error {
   display: block;
+  width: 396px;
   height: 12px;
   margin: 6px 0 0;
   font-style: normal;
@@ -172,3 +173,25 @@
 .profile__submit-button_inactive:hover {
   opacity: 1;
 }
+
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+
+  .profile__label {
+    width: 260px;
+  }
+
+  .profile__submit-button {
+    width: 260px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .profile__signout-link {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .profile__input_type-error {
+    width: 260px;
+  }

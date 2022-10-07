@@ -96,7 +96,7 @@ function Profile(props) {
             disabled={isFormDisabled}
           />
         </label>
-        <span className="profile__input_type-error email-input-error">{errors.email}</span>
+        <span className="profile__input_type-error">{errors.email}</span>
 
         <section className={`profile__navigation ${classesListEditProfile}`}>
           <span className="profile__submit_type-error">{editProfileError}</span>

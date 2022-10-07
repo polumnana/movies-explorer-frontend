@@ -63,7 +63,7 @@ function Login(props) {
               required
             />
           </label>
-          <span className="login__type-input-error email-input-error">{errors.email}</span>
+          <span className="login__type-input-error">{errors.email}</span>
 
           <label className="login__label">
             <h2 className="login__subtitle">Пароль</h2>
