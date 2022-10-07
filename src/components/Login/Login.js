@@ -27,8 +27,7 @@ function Login(props) {
           props.onLogin({ email: values.email, name: result.name });
         }
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
         setErrors({ ...errors, 'errorsLogin': 'Что-то пошло не так. Попробуйте ещё раз.' });
       });
   }

@@ -24,8 +24,7 @@ function Register(props) {
       }).then((result) => {
         props.onRegister({ email: values.email, password: values.password });
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
         setErrors({ ...errors, 'errorsLogin': 'Что-то пошло не так. Попробуйте ещё раз.' });
       });
   }

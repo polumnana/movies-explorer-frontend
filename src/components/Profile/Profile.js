@@ -39,9 +39,8 @@ function Profile(props) {
         resetForm();
         setIsFormDisabled(true);
       })
-      .catch((err) => {
+      .catch(() => {
         setEditProfileError('Произошла ошибка, попробуйте снова');
-        console.log(err);
       });
   }
 
