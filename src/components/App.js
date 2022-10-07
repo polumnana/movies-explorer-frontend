@@ -25,6 +25,8 @@ function App(props) {
   const [savedMovies, setSavedMovies] = React.useState([]);
   const [filteredSavedMovies, setFilteredSavedMovies] = React.useState([]);
 
+  const [isLoading, setIsLoading] = React.useState(false);
+
   function handleSaveMovie(movie) {
     apiMain
       .addMovie(movie)
@@ -183,6 +185,7 @@ function App(props) {
             <Route path='/movies' element={
               <ProtectedRoute isLoggedIn={isLoggedIn}>
                 <Movies
+                  isLoading={isLoading}
                   movies={filteredMovies}
                   onSaveMovie={handleSaveMovie}
                   onDeleteMovie={handleDeleteMovie}
