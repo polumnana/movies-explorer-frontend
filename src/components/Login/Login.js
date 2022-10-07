@@ -59,6 +59,7 @@ function Login(props) {
               name="email"
               minLength="4"
               maxLength="40"
+              pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$"
               value={values.email}
               required
             />
