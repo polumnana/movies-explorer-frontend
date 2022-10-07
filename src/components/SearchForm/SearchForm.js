@@ -11,7 +11,9 @@ function SearchForm(props) {
   }
 
   function changeCheckboxState() {
-    setCheckboxState(!checkboxState);
+    const newValue = !checkboxState;
+    setCheckboxState(newValue);
+    props.onSearch(searchText, newValue);
   }
 
   function searchMovies() {

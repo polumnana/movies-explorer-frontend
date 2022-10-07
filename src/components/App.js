@@ -72,14 +72,8 @@ function App(props) {
           console.log(err);
         });
 
-      apiMovie
-        .fetchMovies()
-        .then((res) => {
-          setAllMovies(res);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
+      const arr = JSON.parse(localStorage.getItem('allmovies') || '[]');
+      setAllMovies(arr);
     }
   }, [isLoggedIn]);
 
@@ -148,12 +142,35 @@ function App(props) {
       return;
     }
 
-    let result = allMovies.filter(movie => movie.nameRU.toLowerCase().includes(searchText));
-    if (checkboxState) {
-      result = result.filter(movie => movie.duration < 40);
-    }
+    if (!localStorage.getItem('allmovies')) {
+      setIsLoading(true);
+      apiMovie
+        .fetchMovies()
+        .then((res) => {
+          localStorage.setItem('allmovies', JSON.stringify(res));
+          setAllMovies(res);
 
-    setFilteredMovies(result);
+          let result = res.filter(movie => movie.nameRU.toLowerCase().includes(searchText));
+          if (checkboxState) {
+            result = result.filter(movie => movie.duration < 40);
+          }
+
+          setFilteredMovies(result);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    } else {
+      let result = allMovies.filter(movie => movie.nameRU.toLowerCase().includes(searchText));
+      if (checkboxState) {
+        result = result.filter(movie => movie.duration < 40);
+      }
+
+      setFilteredMovies(result);
+    }
   }
 
   function handleSearchSaved(searchText, checkboxState) {
