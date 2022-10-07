@@ -55,13 +55,7 @@ function App(props) {
   }
 
   function onEditProfile({ name, email }) {
-    apiMain.updateUserInfo({ name, email })
-      .then((data) => {
-        setCurrentUser(data);
-      })
-      .catch((err) => {
-        // this.handleInfoTooltip(false);
-      });
+    setCurrentUser({ name, email });
   }
 
   React.useEffect(() => {

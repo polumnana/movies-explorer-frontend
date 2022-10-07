@@ -131,6 +131,18 @@
   color: #FF004C;
 }
 
+.profile__submit_type-success {
+  display: block;
+  height: 13px;
+  margin: 0 0 20px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  text-align: center;
+  color: #000000;
+}
+
 .profile__submit-button {
   width: 396px;
   height: 45px;

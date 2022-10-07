@@ -1,4 +1,5 @@
 import React from "react";
+import apiMain from "../../utils/MainApi.js";
 import { useFormWithValidation } from '../../utils/validate.js';
 import { CurrentUserContext } from '../Contexts/CurrentUserContext.js';
 
@@ -10,6 +11,9 @@ function Profile(props) {
   const [isFormDisabled, setIsFormDisabled] = React.useState(true);
   const currentUser = React.useContext(CurrentUserContext); // получаем значения из контекста
 
+  const [editProfileStatus, setEditProfileStatus] = React.useState('');
+  const [editProfileError, setEditProfileError] = React.useState('');
+
   const submitButtonClass = !isValid
     ? "profile__submit-button profile__submit-button_inactive"
     : "profile__submit-button";
@@ -17,20 +21,36 @@ function Profile(props) {
 
   React.useEffect(() => {
     setValues({ ...values, username: currentUser.name, email: currentUser.email });
-  }, []);
+  }, [editProfileStatus, editProfileError]);
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    props.onEditProfile({ name: values.username, email: values.email });
-    setClassesListSubmitProfile('');
-    setClassesListEditProfile('profile__navigation_visible');
-    resetForm();
+
+    onEditProfile({ name: values.username, email: values.email });
+  }
+
+  function onEditProfile({ name, email }) {
+    apiMain.updateUserInfo({ name, email })
+      .then(() => {
+        props.onEditProfile({ name, email });
+        setClassesListSubmitProfile('');
+        setClassesListEditProfile('profile__navigation_visible');
+        setEditProfileStatus('Сохранено');
+        resetForm();
+        setIsFormDisabled(true);
+      })
+      .catch((err) => {
+        setEditProfileError('Произошла ошибка, попробуйте снова');
+        console.log(err);
+      });
   }
 
   function handleEditProfile() {
     setClassesListSubmitProfile('profile__submit_visible');
     setClassesListEditProfile('');
     setIsFormDisabled(false);
+    setEditProfileStatus('');
+    setEditProfileError('');
   }
 
   return (
@@ -71,7 +91,7 @@ function Profile(props) {
             name="email"
             minLength="4"
             maxLength="40"
-            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$"
+            // pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$"
             value={values.email}
             required
             disabled={isFormDisabled}
@@ -80,6 +100,9 @@ function Profile(props) {
         <span className="profile__input_type-error email-input-error">{errors.email}</span>
 
         <section className={`profile__navigation ${classesListEditProfile}`}>
+          <span className="profile__submit_type-error">{editProfileError}</span>
+          <span className="profile__submit_type-success">{editProfileStatus}</span>
+
           <button
             className="profile__button-edit"
             type="button"
@@ -92,7 +115,9 @@ function Profile(props) {
         </section>
 
         <section className={`profile__submit ${classesListSubmitProfile}`}>
-          <span className="profile__submit_type-error profile-submit-error"></span>
+          <span className="profile__submit_type-error">{editProfileError}</span>
+          <span className="profile__submit_type-success">{editProfileStatus}</span>
+
           <button
             className={submitButtonClass}
             disabled={!isValid}
