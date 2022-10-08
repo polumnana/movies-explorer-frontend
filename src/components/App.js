@@ -102,6 +102,9 @@ function App(props) {
 
       const arr = JSON.parse(localStorage.getItem('allmovies') || '[]');
       setAllMovies(arr);
+
+      const arrFiltered = JSON.parse(localStorage.getItem('filteredMovies') || '[]');
+      setFilteredMovies(arrFiltered);
     }
   }, [isLoggedIn]);
 
@@ -216,6 +219,7 @@ function App(props) {
           }
 
           setFilteredMovies(result);
+          localStorage.setItem('filteredMovies', JSON.stringify(result));
         })
         .catch((err) => {
           console.error(err);
@@ -232,6 +236,8 @@ function App(props) {
       }
 
       setFilteredMovies(result);
+      localStorage.setItem('filteredMovies', JSON.stringify(result));
+
       if (result.length === 0) {
         setMoviesMessage('Ничего не найдено');
       }
