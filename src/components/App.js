@@ -82,10 +82,8 @@ function App(props) {
     checkUserToken();
 
     setSearchTextMovies(localStorage.getItem('searchTextMovies') || '');
-    setSearchTextSavedMovies(localStorage.getItem('searchTextSavedMovies') || '');
 
     setMoviesCheckbox(localStorage.getItem('moviesCheckbox') === 'true');
-    setSavedMoviesCheckbox(localStorage.getItem('savedMoviesCheckbox') === 'true');
 
     if (isLoggedIn) {
       apiMain
@@ -172,8 +170,6 @@ function App(props) {
     localStorage.removeItem('jwt');
     localStorage.removeItem('searchTextMovies');
     localStorage.removeItem('moviesCheckbox');
-    localStorage.removeItem('searchTextSavedMovies');
-    localStorage.removeItem('savedMoviesCheckbox');
 
     setIsLoggedIn(false);
     setCurrentUser({});
@@ -251,7 +247,6 @@ function App(props) {
 
   function handleSetCheckboxSavedMovies(value) {
     setSavedMoviesCheckbox(value);
-    localStorage.setItem('savedMoviesCheckbox', value);
 
     if (searchTextSavedMovies)
       handleSearchSavedMovies(searchTextSavedMovies, value);
@@ -261,7 +256,6 @@ function App(props) {
     searchText = searchText.trim().toLowerCase();
 
     setSearchTextSavedMovies(searchText);
-    localStorage.setItem('searchTextSavedMovies', searchText);
     setSavedMoviesMessage('');
 
     let result = savedMovies;
