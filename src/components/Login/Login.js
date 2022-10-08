@@ -27,8 +27,12 @@ function Login(props) {
           props.onLogin({ email: values.email, name: result.name });
         }
       })
-      .catch(() => {
-        setErrors({ ...errors, 'errorsLogin': 'Что-то пошло не так. Попробуйте ещё раз.' });
+      .catch((err) => {
+        if (err.includes(401)) {
+          setErrors({ ...errors, 'errorsLogin': 'Неверный логин или пароль' });
+        } else {
+          setErrors({ ...errors, 'errorsLogin': 'Что-то пошло не так. Попробуйте ещё раз.' });
+        }
       });
   }
 
