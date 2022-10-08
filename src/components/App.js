@@ -176,6 +176,14 @@ function App(props) {
     setSavedMovies([]);
     setFilteredMovies([]);
     setFilteredSavedMovies([]);
+
+    setMoviesError('');
+    setSavedMoviesError('');
+    setMoviesMessage('');
+    setSavedMoviesMessage('');
+    setSearchTextMovies('');
+    setSearchTextSavedMovies('');
+
     props.navigate('/');
   }
 
