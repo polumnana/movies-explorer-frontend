@@ -250,7 +250,6 @@ function App(props) {
   }
 
   function handleSetCheckboxSavedMovies(value) {
-    console.log(1);
     setSavedMoviesCheckbox(value);
     localStorage.setItem('savedMoviesCheckbox', value);
 
@@ -263,7 +262,6 @@ function App(props) {
 
     setSearchTextSavedMovies(searchText);
     localStorage.setItem('searchTextSavedMovies', searchText);
-    console.log(2);
     setSavedMoviesMessage('');
 
     let result = savedMovies;
