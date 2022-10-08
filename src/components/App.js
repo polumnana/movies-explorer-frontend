@@ -174,6 +174,7 @@ function App(props) {
     localStorage.removeItem('searchTextMovies');
     localStorage.removeItem('moviesCheckbox');
     localStorage.removeItem('allmovies');
+    localStorage.removeItem('filteredMovies');
 
     setIsLoggedIn(false);
     setCurrentUser({});
