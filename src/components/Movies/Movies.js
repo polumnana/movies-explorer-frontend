@@ -22,7 +22,9 @@ function Movies(props) {
           movies={props.movies}
           onSaveMovie={props.onSaveMovie}
           onDeleteMovie={props.onDeleteMovie}
-          savedMovies={props.savedMovies} />
+          savedMovies={props.savedMovies}
+          error={props.error}
+          message={props.message} />
       )
       }
     </>

@@ -32,6 +32,12 @@ function App(props) {
   const [moviesCheckbox, setMoviesCheckbox] = React.useState(false);
   const [savedMoviesCheckbox, setSavedMoviesCheckbox] = React.useState(false);
 
+  const [moviesError, setMoviesError] = React.useState('');
+  const [savedMoviesError, setSavedMoviesError] = React.useState('');
+
+  const [moviesMessage, setMoviesMessage] = React.useState('');
+  const [savedMoviesMessage, setSavedMoviesMessage] = React.useState('');
+
   function handleSaveMovie(movie) {
     apiMain
       .addMovie(movie)
@@ -41,7 +47,11 @@ function App(props) {
         setFilteredSavedMovies(arr);
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
+        if (location === '/movies')
+          setMoviesError("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен.");
+        else if (location === "/saved-movies")
+          setSavedMoviesError("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен.");
       });
   }
 
@@ -55,7 +65,11 @@ function App(props) {
         setFilteredSavedMovies(arr);
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
+        if (location === '/movies')
+          setMoviesError("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен.");
+        else if (location === "/saved-movies")
+          setSavedMoviesError("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен.");
       });
   }
 
@@ -80,7 +94,11 @@ function App(props) {
           setFilteredSavedMovies([]);
         })
         .catch((err) => {
-          console.log(err);
+          console.error(err);
+          if (location === '/movies')
+            setMoviesError("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен.");
+          else if (location === "/saved-movies")
+            setSavedMoviesError("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен.");
         });
 
       const arr = JSON.parse(localStorage.getItem('allmovies') || '[]');
@@ -140,7 +158,12 @@ function App(props) {
         }
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
+
+        if (location === '/movies')
+          setMoviesError("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен.");
+        else if (location === "/saved-movies")
+          setSavedMoviesError("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен.");
       });
   }
 
@@ -158,10 +181,13 @@ function App(props) {
     searchText = searchText.trim().toLowerCase();
 
     if (searchText === '') {
+      setMoviesError('Нужно ввести ключевое слово');
       setFilteredMovies([]);
       return;
     }
 
+    setMoviesError('');
+    setMoviesMessage('');
     setSearchTextMovies(searchText);
     localStorage.setItem('searchTextMovies', searchText);
 
@@ -181,7 +207,9 @@ function App(props) {
           setFilteredMovies(result);
         })
         .catch((err) => {
-          console.log(err);
+          console.error(err);
+
+          setMoviesError("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз");
         })
         .finally(() => {
           setIsLoading(false);
@@ -193,6 +221,9 @@ function App(props) {
       }
 
       setFilteredMovies(result);
+      if (result.length === 0) {
+        setMoviesMessage('Ничего не найдено');
+      }
     }
   }
 
@@ -215,20 +246,24 @@ function App(props) {
   function handleSearchSavedMovies(searchText, savedMoviesCheckbox) {
     searchText = searchText.trim().toLowerCase();
 
-    if (searchText === '') {
-      setFilteredMovies(savedMovies);
-      return;
-    }
-
     setSearchTextSavedMovies(searchText);
     localStorage.setItem('searchTextSavedMovies', searchText);
+    setSavedMoviesMessage('');
 
-    let result = savedMovies.filter(movie => movie.nameRU.toLowerCase().includes(searchText));
+    let result = savedMovies;
+    if (searchText !== '') {
+      result = result.filter(movie => movie.nameRU.toLowerCase().includes(searchText))
+    }
+
     if (savedMoviesCheckbox) {
       result = result.filter(movie => movie.duration < 40);
     }
 
     setFilteredSavedMovies(result);
+
+    if (result.length === 0) {
+      setSavedMoviesMessage('Ничего не найдено');
+    }
   }
 
   return (
@@ -259,6 +294,8 @@ function App(props) {
                   onSetCheckbox={handleSetCheckboxMovies}
                   searchText={searchTextMovies}
                   checkboxState={moviesCheckbox}
+                  error={moviesError}
+                  message={moviesMessage}
                 />
               </ProtectedRoute>
             }
@@ -275,6 +312,8 @@ function App(props) {
                     onSetCheckbox={handleSetCheckboxSavedMovies}
                     searchText={searchTextSavedMovies}
                     checkboxState={savedMoviesCheckbox}
+                    error={savedMoviesError}
+                    message={savedMoviesMessage}
                   />
                 </ProtectedRoute>
               }

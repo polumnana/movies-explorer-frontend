@@ -1,14 +1,13 @@
-function NotFoundMovie() {
+function NotFoundMovies(props) {
 
-  function name(){
-    //findResultClass ... "notfound-movies__text" : "notfound-movies__text-error"
-  }
+  const findResultClass = props.error ? "notfound-movies__text-error" : "notfound-movies__text";
+  const text = props.error || props.message;
 
   return (
     <section className="notfound-movies">
-      <h2 className={findResultClass}></h2>
+      <h2 className={findResultClass}>{text}</h2>
     </section>
   );
 }
 
-export default NotFoundMovie;
+export default NotFoundMovies;

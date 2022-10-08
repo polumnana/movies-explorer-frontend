@@ -39,10 +39,8 @@ function SearchForm(props) {
           placeholder="Фильм"
           type="search"
           onChange={changeSearchForm}
-          minLength="1"
           value={searchText}
-          required
-        ></input>
+        />
         <button
           className="searchform__button-find"
           type="submit">
