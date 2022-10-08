@@ -109,7 +109,7 @@ function App(props) {
   }, [isLoggedIn]);
 
   React.useEffect(() => {
-    if (isLoggedIn) {
+    if (isLoggedIn && searchTextSavedMovies) {
       handleSearchSavedMovies(searchTextSavedMovies, savedMoviesCheckbox);
     }
   }, [isLoggedIn, searchTextSavedMovies, savedMoviesCheckbox, savedMovies]);
@@ -171,6 +171,11 @@ function App(props) {
 
   function onLogout() {
     localStorage.removeItem('jwt');
+    localStorage.removeItem('searchTextMovies');
+    localStorage.removeItem('moviesCheckbox');
+    localStorage.removeItem('searchTextSavedMovies');
+    localStorage.removeItem('savedMoviesCheckbox');
+
     setIsLoggedIn(false);
     setCurrentUser({});
     setSavedMovies([]);
