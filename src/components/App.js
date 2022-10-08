@@ -170,6 +170,7 @@ function App(props) {
     localStorage.removeItem('jwt');
     localStorage.removeItem('searchTextMovies');
     localStorage.removeItem('moviesCheckbox');
+    localStorage.removeItem('allmovies');
 
     setIsLoggedIn(false);
     setCurrentUser({});
