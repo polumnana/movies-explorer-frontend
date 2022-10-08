@@ -4,6 +4,10 @@ import SearchForm from "../SearchForm/SearchForm";
 
 function SavedMovies(props) {
 
+  React.useEffect(() => {
+    props.onSearch("", false);
+  }, []);
+
   return (
     <>
       <SearchForm

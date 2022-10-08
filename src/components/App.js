@@ -326,8 +326,8 @@ function App(props) {
                     savedMovies={savedMovies}
                     onSearch={handleSearchSavedMovies}
                     onSetCheckbox={handleSetCheckboxSavedMovies}
-                    searchText={searchTextSavedMovies}
-                    checkboxState={savedMoviesCheckbox}
+                    searchText=""
+                    checkboxState={false}
                     error={savedMoviesError}
                     message={savedMoviesMessage}
                   />
