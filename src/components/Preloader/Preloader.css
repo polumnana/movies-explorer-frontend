@@ -34,3 +34,9 @@
   height: 25px;
   animation: spin 2700ms infinite linear;
 }
+
+@media screen and (min-width: 320px) and (max-width: 1279px) {
+  .preloader {
+    width: 100%;
+  }
+}
