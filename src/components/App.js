@@ -38,6 +38,8 @@ function App(props) {
   const [moviesMessage, setMoviesMessage] = React.useState('');
   const [savedMoviesMessage, setSavedMoviesMessage] = React.useState('');
 
+  const somethingWrong = "Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен.";
+
   function handleSaveMovie(movie) {
     apiMain
       .addMovie(movie)
@@ -49,9 +51,9 @@ function App(props) {
       .catch((err) => {
         console.error(err);
         if (location === '/movies')
-          setMoviesError("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен.");
+          setMoviesError(somethingWrong);
         else if (location === "/saved-movies")
-          setSavedMoviesError("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен.");
+          setSavedMoviesError(somethingWrong);
       });
   }
 
@@ -67,9 +69,9 @@ function App(props) {
       .catch((err) => {
         console.error(err);
         if (location === '/movies')
-          setMoviesError("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен.");
+          setMoviesError(somethingWrong);
         else if (location === "/saved-movies")
-          setSavedMoviesError("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен.");
+          setSavedMoviesError(somethingWrong);
       });
   }
 
@@ -96,9 +98,9 @@ function App(props) {
         .catch((err) => {
           console.error(err);
           if (location === '/movies')
-            setMoviesError("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен.");
+            setMoviesError(somethingWrong);
           else if (location === "/saved-movies")
-            setSavedMoviesError("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен.");
+            setSavedMoviesError(somethingWrong);
         });
 
       const arr = JSON.parse(localStorage.getItem('allmovies') || '[]');
@@ -161,9 +163,9 @@ function App(props) {
         console.error(err);
 
         if (location === '/movies')
-          setMoviesError("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен.");
+          setMoviesError(somethingWrong);
         else if (location === "/saved-movies")
-          setSavedMoviesError("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен.");
+          setSavedMoviesError(somethingWrong);
       });
   }
 
@@ -209,7 +211,7 @@ function App(props) {
         .catch((err) => {
           console.error(err);
 
-          setMoviesError("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз");
+          setMoviesError(somethingWrong);
         })
         .finally(() => {
           setIsLoading(false);
