@@ -82,8 +82,8 @@ function App(props) {
   React.useEffect(() => {
     checkUserToken();
 
-    setSearchTextMovies(localStorage.getItem('searchTextMovies'));
-    setSearchTextSavedMovies(localStorage.getItem('searchTextSavedMovies'));
+    setSearchTextMovies(localStorage.getItem('searchTextMovies') || '');
+    setSearchTextSavedMovies(localStorage.getItem('searchTextSavedMovies') || '');
 
     setMoviesCheckbox(localStorage.getItem('moviesCheckbox') === 'true');
     setSavedMoviesCheckbox(localStorage.getItem('savedMoviesCheckbox') === 'true');
