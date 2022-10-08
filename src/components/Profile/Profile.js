@@ -14,10 +14,18 @@ function Profile(props) {
   const [editProfileStatus, setEditProfileStatus] = React.useState('');
   const [editProfileError, setEditProfileError] = React.useState('');
 
-  const submitButtonClass = !isValid
+  const [isSaveEnabled, setIsSaveEnabled] = React.useState(false);
+
+  const submitButtonClass = !isSaveEnabled
     ? "profile__submit-button profile__submit-button_inactive"
     : "profile__submit-button";
 
+  React.useEffect(() => {
+    if (isValid && (values.username !== currentUser.name || values.email !== currentUser.email))
+      setIsSaveEnabled(true);
+    else
+      setIsSaveEnabled(false);
+  }, [values, isValid, currentUser.email, currentUser.name]);
 
   React.useEffect(() => {
     setValues({ ...values, username: currentUser.name, email: currentUser.email });
@@ -119,7 +127,7 @@ function Profile(props) {
 
           <button
             className={submitButtonClass}
-            disabled={!isValid}
+            disabled={!isSaveEnabled}
             type="submit"
           >Сохранить
           </button>
