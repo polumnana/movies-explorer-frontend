@@ -1,4 +1,16 @@
 import React from "react";
+import {
+  ADDMOVIES_2,
+  ADDMOVIES_3,
+  ADDMOVIES_4,
+  MOVIES_12,
+  MOVIES_16,
+  MOVIES_5,
+  MOVIES_8,
+  WIDTH_1280,
+  WIDTH_480,
+  WIDTH_768
+} from "../../utils/constants";
 import Movie from "../Movie/Movie";
 import NotFoundMovies from "../NotFoundMovies/NotFoundMovies";
 
@@ -12,18 +24,18 @@ function Gallery(props) {
       setWidth(window.innerWidth);
     };
 
-    if (width <= 480) {
-      setDisplayMovies(5);
-      setMoviesToAdd(2)
-    } else if (width > 480 && width <= 768) {
-      setDisplayMovies(8);
-      setMoviesToAdd(2)
-    } else if (width > 768 && width <= 1280) {
-      setDisplayMovies(12);
-      setMoviesToAdd(3);
-    } else if (width > 1280) {
-      setDisplayMovies(16);
-      setMoviesToAdd(4);
+    if (width <= WIDTH_480) {
+      setDisplayMovies(MOVIES_5);
+      setMoviesToAdd(ADDMOVIES_2)
+    } else if (width > WIDTH_480 && width <= WIDTH_768) {
+      setDisplayMovies(MOVIES_8);
+      setMoviesToAdd(ADDMOVIES_2)
+    } else if (width > WIDTH_768 && width <= WIDTH_1280) {
+      setDisplayMovies(MOVIES_12);
+      setMoviesToAdd(ADDMOVIES_3);
+    } else if (width > WIDTH_1280) {
+      setDisplayMovies(MOVIES_16);
+      setMoviesToAdd(ADDMOVIES_4);
     }
 
     window.addEventListener('resize', onWindowResize);
