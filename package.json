@@ -41,8 +41,6 @@
     ]
   },
   "devDependencies": {
-    "css-loader": "^6.7.1",
-    "gh-pages": "^4.0.0",
-    "mini-css-extract-plugin": "^2.6.1"
+    "gh-pages": "^4.0.0"
   }
 }

@@ -22,19 +22,5 @@
 @import url(./components/Movies/Movies.css);
 @import url(./components/SavedMovies/SavedMovies.css);
 @import url(./components/Header/HeaderBurger/HeaderBurger.css);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@import url(./components/Preloader/Preloader.css);
+@import url(./components/NotFoundMovies/NotFoundMovies.css);

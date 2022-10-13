@@ -1,0 +1,25 @@
+const MOVIES_5 = 5;
+const MOVIES_8 = 8;
+const MOVIES_12 = 12;
+const MOVIES_16 = 16;
+
+const ADDMOVIES_2 = 2;
+const ADDMOVIES_3 = 3;
+const ADDMOVIES_4 = 4;
+
+const WIDTH_480 = 480;
+const WIDTH_768 = 768;
+const WIDTH_1280 = 1280;
+
+export {
+  MOVIES_5,
+  MOVIES_8,
+  MOVIES_12,
+  MOVIES_16,
+  ADDMOVIES_2,
+  ADDMOVIES_3,
+  ADDMOVIES_4,
+  WIDTH_480,
+  WIDTH_768,
+  WIDTH_1280
+};

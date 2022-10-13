@@ -1,0 +1,33 @@
+.notfound-movies {
+  width: 1280px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.notfound-movies__text {
+  margin: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+}
+
+.notfound-movies__text-error {
+  margin: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #EE3465;
+}
+
+@media screen and (min-width: 320px) and (max-width: 1279px) {
+  .notfound-movies {
+    width: 100%;
+  }
+}

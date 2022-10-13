@@ -1,69 +1,69 @@
 .gallery {
-    margin: 0;
-    width: 1280px;
-    min-height: 1284px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  margin: 0;
+  width: 1280px;
+  min-height: 1284px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .gallery__elements {
-    margin: 80px 0 30px;
-    display: grid;
-    gap: 30px 24px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
-    justify-items: center;
+  margin: 80px 0 30px;
+  display: grid;
+  gap: 30px 24px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  justify-items: center;
 }
 
 .gallery__button {
-    margin: 50px 0 80px;
-    padding: 0;
-    width: 320px;
-    height: 36px;
-    border: 1px solid #e8e8e8;
-    border-radius: 6px;
-    background-color: #fff;
-    cursor: pointer;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 15px;
-    text-align: center;
+  margin: 50px 0 80px;
+  padding: 0;
+  width: 320px;
+  height: 36px;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  background-color: #fff;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
 }
 
 .gallery__button:hover {
-    opacity: .7;
+  opacity: .7;
 }
 
 @media screen and (min-width: 750px) and (max-width: 1279px) {
-    .gallery {
-        width: 100%;
-        min-height: 1250px;
-    }
+  .gallery {
+    width: 100%;
+    min-height: 1250px;
+  }
 
-    .gallery__elements {
-        margin: 70px 0 30px;
-        gap: 36px 30px;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto;
-    }
+  .gallery__elements {
+    margin: 70px 0 30px;
+    gap: 36px 30px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
 }
 
 @media screen and (min-width: 320px) and (max-width: 750px) {
-    .gallery {
-        width: 94%;
-        min-height: 1250px;
-    }
+  .gallery {
+    width: 100%;
+    min-height: 1250px;
+  }
 
-    .gallery__elements {
-        margin: 50px 0 30px;
-        gap: 16px 0;
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: auto;
-    }
+  .gallery__elements {
+    margin: 50px 0 30px;
+    gap: 16px 0;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+  }
 
-    .gallery__button {
-        width: 240px;
-    }
+  .gallery__button {
+    width: 240px;
+  }
 }
